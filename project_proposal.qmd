@@ -69,6 +69,8 @@ Based on the above summaries, we can see that there are missing values in the da
 
 We will impute missing values with the mean of the column using the fill() function from the tidyr package.
 ```{r}
+aap_data_cleaned <- airReport #place holder
+
 numeric_columns <- c("PM2.5 (μg/m3)", "PM10 (μg/m3)", "NO2 (μg/m3)", "PM25 temporal coverage (%)", "PM10 temporal coverage (%)", "NO2 temporal coverage (%)")
 
 aap_data_cleaned <- aap_data_cleaned %>%
