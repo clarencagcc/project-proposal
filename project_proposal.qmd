@@ -1,12 +1,13 @@
 ---
-title: "Your Document Title"
+title: "Air Quality Project Proposal"
 author: "Your Name"
-date: "YYYY-MM-DD"
+date: "2024-MM-DD"
 
 format: 
   html:
     toc: true
     toc-depth: 3
+    number-sections: true
     embed-resources: true
 ---
 
@@ -15,16 +16,12 @@ These libraries will be required:
 ```{r}
 library(tidyverse)
 library(readxl)
-library(dplyr)
-library(tidyr)
-
 ```
-
 # Original Data Visualization in News Media
 
 The quality of air in urban environments is a pressing concern, intertwining public health, environmental policies, and urban planning. Our latest visualization, inspired by the comprehensive data presented by Visual Capitalist (2022), sheds light on the air quality levels across major global cities, offering fresh insights into the state of urban air pollution and its implications. Our project aims to dissect the relationship between air quality indices and urbanization patterns, unveiling trends that may correlate with the countries’ income levels. The visualization spans across various cities worldwide, providing a comparative analysis that highlights both improvements and deteriorations in air quality. While the initial visualization effectively communicates these trends to readers, there are enhancements that could further improve its clarity and depth. Future improvements could include interactive maps, detailed temporal breakdowns, and demographic overlays, allowing for a more nuanced exploration of how urban development strategies impact air quality. This comprehensive approach will enable readers to better understand and see the trends in air quality across global cities.
 
-![Figure 1: Visualized: Air Quality and Pollution in 50 Capital Cities (IQAir 2022 World Air Quality Report)](CP_Air-Quality_1200px.jpg){lightbox="true"}
+![Figure 1: Visualized: Air Quality and Pollution in 50 Capital Cities (IQAir 2022 World Air Quality Report)](CP_Air-Quality_1200px.jpg){width=25% height=25% .lightbox}
 
 # Critical Assessment of the Original Visualization
 
@@ -60,6 +57,7 @@ glimpse(airReport)
 ```{r}
 summary(airReport)
 ```
+
 ## Handling of Missing Values
 
 Based on the above summaries, we can see that there are missing values in the dataset in the PM columns. We will need to handle these missing values before proceeding with the changes. Some methods we can use to handle missing values include:
@@ -68,6 +66,7 @@ Based on the above summaries, we can see that there are missing values in the da
 2.  **Imputation**: We can impute missing values with the mean, median, or mode of the column.
 
 We will impute missing values with the mean of the column using the fill() function from the tidyr package.
+
 ```{r}
 aap_data_cleaned <- airReport #place holder
 
@@ -77,10 +76,10 @@ aap_data_cleaned <- aap_data_cleaned %>%
   mutate(across(all_of(numeric_columns), ~ ifelse(is.na(.), mean(., na.rm = TRUE), .)))
 ```
 
-
 ## Normalizing Column Names
 
 We will also need to normalize the column names to ensure consistency and ease of access. This will involve converting all column names to lowercase, replacing spaces with underscores, and removing special characters.
+
 ```{r}
 colnames(aap_data_cleaned) <- tolower(gsub(" ", "_", colnames(aap_data_cleaned)))
 ```
@@ -88,6 +87,7 @@ colnames(aap_data_cleaned) <- tolower(gsub(" ", "_", colnames(aap_data_cleaned))
 ## Data Type Conversion
 
 We will convert the data types of the columns to their appropriate types. For example, the year column should be converted to a date type if it is not already in that format.
+
 ```{r}
 aap_data_cleaned$measurement_year <- as.integer(aap_data_cleaned$measurement_year)
 ```
@@ -95,15 +95,26 @@ aap_data_cleaned$measurement_year <- as.integer(aap_data_cleaned$measurement_yea
 ## Removing Duplicates
 
 We will check for and remove any duplicate rows in the dataset to ensure data integrity.
+
 ```{r}
 aap_data_cleaned <- aap_data_cleaned %>% distinct()
 ```
 
 ## Cleaned Data
+
 This is the cleaned data
+
 ```{r}
 head(aap_data_cleaned)
 ```
 
 # Conclusion
+
 The data has now been cleaned and is ready for visualization, we will be using ggplot2 to create the visualizations. The proposed improvements will be implemented to enhance the clarity and depth of the visualization, providing a more interactive and informative experience for users. By incorporating these enhancements, we aim to create a more engaging and insightful visualization that effectively communicates the trends in air quality across global cities.
+
+# References
+
+Rao, P. (2024, January 6). Visualized: Air quality and pollution in 50 capital cities. Visual Capitalist. \
+<https://www.visualcapitalist.com/cp/air-quality-in-cities-2022/>
+
+*Air quality database 2022*. (2024, June 20). <https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database/2022>

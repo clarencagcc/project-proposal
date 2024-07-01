@@ -2,3 +2,14 @@
 .Rhistory
 .RData
 .Ruserdata
+project_proposal_files/libs/bootstrap/bootstrap-icons.css
+project_proposal_files/libs/bootstrap/bootstrap-icons.woff
+project_proposal_files/libs/bootstrap/bootstrap.min.css
+project_proposal_files/libs/bootstrap/bootstrap.min.js
+project_proposal_files/libs/clipboard/clipboard.min.js
+project_proposal_files/libs/quarto-html/anchor.min.js
+project_proposal_files/libs/quarto-html/popper.min.js
+project_proposal_files/libs/quarto-html/tippy.umd.min.js
+project_proposal_files/libs/quarto-html/tippy.css
+project_proposal_files/libs/quarto-html/quarto.js
+project_proposal_files/libs/quarto-html/quarto-syntax-highlighting.css
