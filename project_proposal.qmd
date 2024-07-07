@@ -1,6 +1,14 @@
 ---
 title: "Air Quality Project Proposal"
-author: "Ng Wei Herng 2302854"
+subtitle: "Visualizing Air Quality of Countries Over Time"
+
+author: 
+- name: "Yeo Song Chen 2302785"
+- name: "Agcanas Clarence Angelo Misagal 2302823"
+- name: "Timothy Zoe 2302663"
+- name: "Ng Wei Herng 2302854"
+- name: "Lee Ru Yuan 2303393"
+
 date: "2024-07-07"
 
 format: 
@@ -56,7 +64,7 @@ However, the visualization is overall cluttered and does not scale well, making 
 
 The original data set used for the visualization was sourced from the IQAir World Air Quality Report [(2022)](#references). While IQAir provides an API for users to obtain their air quality data, the API only gives real-time data instead of data in a time series ranging from the past to recent years.
 
-As such, the data set we have chosen to use comes from the World Health Organization (WHO) which provides data on air quality for various countries [(2022)](#references). The data set contains information on PM2.5 concentrations for different countries and years. Alongside this data set, we have also chosen to use 3 additional data set for the purposes of enhancing the visualization, as well as to improve on the data engineering and data cleaning aspect of the WHO data set.
+As such, the data set we have chosen to use comes from the World Health Organization (WHO) which provides data on air quality for various countries [(2022)](#references). The data set contains information on PM2.5 concentrations for different countries and years and is also more precise as WHO has a 60% inclusion requirement whereby the recorded data require annual data availability of at least 60% of the total number of hours in a year to be included. Alongside this data set, we have also chosen to use 3 additional data set for the purposes of enhancing the visualization, as well as to improve on the data engineering and data cleaning aspect of the WHO data set.
 
 The additional data sets are:
 
