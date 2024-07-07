@@ -3,10 +3,10 @@ title: "Air Quality Project Proposal"
 subtitle: "Visualizing Air Quality of Countries Over Time"
 
 author: 
-- name: "Yeo Song Chen 2302785"
-- name: "Agcanas Clarence Angelo Misagal 2302823"
-- name: "Timothy Zoe 2302663"
 - name: "Ng Wei Herng 2302854"
+- name: "Timothy Zoe 2302663"
+- name: "Agcanas Clarence Angelo Misagal 2302823"
+- name: "Yeo Song Chen 2302785"
 - name: "Lee Ru Yuan 2303393"
 
 date: "2024-07-07"
@@ -146,8 +146,6 @@ imputed_data <- imputed_data %>%
     pm2_5 = as.numeric(pm2_5),
     sub_region = as.factor(sub_region)
   )
-
-str(imputed_data)
 ```
 
 ## Removing Duplicates
@@ -183,7 +181,7 @@ population_data <- read_csv("API_SP.POP.TOTL_DS2_en_csv_v2_580248.csv", skip = 4
 # Gather the year columns into key-value pairs of year and population
 population_data <- population_data %>%
   gather(key = "year", value = "population", -`Country Name`, -`Country Code`, -`Indicator Name`, -`Indicator Code`) %>%
-  mutate(year = as.integer(year))
+  mutate(year = ifelse(grepl("^\\d+$", year), as.integer(year), NA_integer_))
 
 # Rename columns for clarity
 colnames(population_data) <- c("country_name", "country_code", "indicator_name", "indicator_code", "year", "population")
