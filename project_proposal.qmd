@@ -16,64 +16,98 @@ These libraries will be required:
 ```{r}
 library(tidyverse)
 library(readxl)
+library(readr)
+library(dplyr)
+library(tidyr)
 ```
+
 # Original Data Visualization in News Media
 
-The quality of air in urban environments is a pressing concern, intertwining public health, environmental policies, and urban planning. Our latest visualization, inspired by the comprehensive data presented by Visual Capitalist (2022), sheds light on the air quality levels across major global cities, offering fresh insights into the state of urban air pollution and its implications. Our project aims to dissect the relationship between air quality indices and urbanization patterns, unveiling trends that may correlate with the countries’ income levels. The visualization spans across various cities worldwide, providing a comparative analysis that highlights both improvements and deteriorations in air quality. While the initial visualization effectively communicates these trends to readers, there are enhancements that could further improve its clarity and depth. Future improvements could include interactive maps, detailed temporal breakdowns, and demographic overlays, allowing for a more nuanced exploration of how urban development strategies impact air quality. This comprehensive approach will enable readers to better understand and see the trends in air quality across global cities.
+The visualization titled "Comparing PM2.5 Concentrations in Capital Cities" created by Pallavi Rao [2023](#references) and published on "The Visual Capitalist", presents a snapshot of PM2.5 air pollution levels in various capital cities around the world for the year 2022. PM2.5 refers to particulate matter that is less than 2.5 micrometers in diameter, which is small enough to penetrate the lungs and enter the bloodstream, posing significant health risks.
+
+This visualization uses a series of red circles to represent the PM2.5 concentrations in each capital city. The number of circles corresponds to the level of PM2.5 concentration that exceeds the World Health Organization's (WHO) safe limit for PM2.5, which is 5 µg/m³. Any value above this indicates a higher risk for adverse health effects.
 
 ![Figure 1: Visualized: Air Quality and Pollution in 50 Capital Cities (IQAir 2022 World Air Quality Report)](CP_Air-Quality_1200px.jpg){width=25% height=25% .lightbox}
 
 # Critical Assessment of the Original Visualization
 
-The original visualization effectively utilizes red circles to represent PM2.5 concentrations, making it easy to see the relative levels of pollution in each capital city, thereby enhancing both clarity and visual appeal. Each city is clearly labeled, which provides a direct understanding of the represented data. Additionally, the use of color and circle size to indicate levels exceeding the WHO safe limit effectively highlights critical information, drawing attention to areas with severe pollution. The quantitative clarity is also strong, as the circles’ sizes correspond to specific PM2.5 concentration ranges, providing an immediate visual grasp of pollution severity. While the visualization is not interactive, it holds potential for interactivity, which could further enhance user engagement and information depth by allowing for detailed data retrieval. Overall, the original visualization effectively communicates the general trends in PM2.5 pollution across various capital cities. However, there are several shortcomings that we have identified.
+The original visualization made good use of color as the choice of red for the circles emphasizes the health hazard posed by high PM2.5 concentrations. It provided a clear legend and chose a consistent format for its presentation, which made sense for its purpose as a comparative visualization. The data was presented in a ranked manner, making it easier to follow the trends in air quality across different cities.
 
-1.  **Absence of Grid Lines**: The lack of grid lines makes it difficult to precisely interpret data and assess scale perception, potentially causing confusion when comparing different cities.
+However, the visualization is overall cluttered and does not scale well, making it tedious when trying to compare or see the trend between a larger number of cities. There are several areas where the visualization could be improved to enhance its effectiveness and user experience:
+
+1.  **Overcrowding in High PM2.5 Cities**: For cities with extremely high PM2.5 levels, the visualization becomes overcrowded with red circles, making it difficult to discern individual data points while also diminishing the impact of the difference in scale between such cities.
 2.  **Static Year Selection**: The visualization is limited to 2022 data. Including multiple years would provide a more dynamic and comprehensive view of trends over time.
 3.  **No Regional Differentiation**: While each city is labeled, there is no clear regional differentiation which could be useful in understanding broader regional trends and patterns.
-4.  **Static Presentation**: The circles are fixed and do not change based on user input. Dynamic elements, such as bubble sizes or color gradients that adjust over time or based on user-selected parameters, could enhance the visual representation.
-5.  **Lack of Interaction**: There are no interactive elements like info-tips or toggle buttons that allow users to explore the data in more depth or switch views between different time periods or concentration ranges.
-6.  **Data Density**: In highly polluted areas (e.g., cities with PM2.5 levels above 50 µg/m³), the circles become dense and can overlap, making it harder to distinguish individual data points.
+4.  **Lack of Depth**: There are no interactive elements like info-tips or toggle buttons that allow users to explore the data in more depth or switch views between different time periods or concentration ranges.
+5. **No Contextual Information**: The visualization lacks additional context such as population density, industrial activity, or geographical features that could help explain the varying air quality levels in each city.
 
 # Proposed Improvements
 
-1.  **Improved color coding**: The color representation of the data can be improved by adding different colors and their corresponding gradients to allow for more distinct data representation (e.g., using green to signify good air quality, yellow to signify moderate air quality and red to signify bad air quality).
-2.  **Distinction for regional data**: Grouping the cities by countries and countries by region will allow for a better representation of the air quality within the countries and region respectively.
-3.  **Addition of comparison and filtering options**: Filters that highlight a specific or multiple countries and regions will help users view the data according to what they wish to view and compare instead of looking through the whole list of countries or regions to find a specific data point.
-4.  **Interactive bubbles**: Hovering over the bubble will show the PM2.5 concentration related to the country or region it represents.
-5.  **Expansion on viewable data**: Including options to view historical data from before 2022 will help in trend studies regarding the past history of air quality for the country or region.
-6.  **Change or increase in ways for data representation**: Include other ways that the data can be viewed such as a heat map, bar charts or line graphs. Have only a few particles show on the graph and change the scale of the graph instead of having overlapping particles.
+1.  **Alternative Visualization Type**: An alternative visual representations such as a color gradient or bar chart could prevent overcrowding and improve clarity.
+2.  **Expansion on Available Data**: Including options to view historical data from before 2022 will help in trend studies regarding the past history of air quality for the country or region.
+3.  **Geographical Grouping**: Grouping the cities by region or continent could make the data more accessible and relevant for viewers interested in specific areas.
+4.  **Interactive Features**: Instead of looking through the whole list of countries or regions to find a specific data point, a filter will allow users to zoom in on specific cities, view time-series data, and explore the sources and effects of pollution.
+5. **Inclusion of Contextual Information**: Including other relevant data such as population or growth domestic product (GDP) alongside PM2.5 levels could offer insights on the potential cause or impact when air quality rises or dips.
+6.  **Improved color coding**: The color representation of the data can be improved by adding different colors and their corresponding gradients to allow for more distinct data representation (e.g., using green to signify good air quality, yellow to signify moderate air quality and red to signify bad air quality).
 
 # Data Cleaning
 
 ## Data Source Summary
 
-The original data set used for the visualization was sourced from the IQAir 2022 World Air Quality Report. This data however does not appear to be available to the public thus we will be using another dataset from the World Health Organization (WHO) which provides data on air quality for various countries. The dataset contains information on PM2.5 concentrations for different countries and years. Below are the glimpse() and summary() summaries of the data.
+The original data set used for the visualization was sourced from the IQAir World Air Quality Report [2022](#references). While IQAir provides an API for users to obtain their air quality data, the API only gives real-time data instead of data in a time series ranging from the past to recent years.
+
+As such, the data set we have chosen to use comes from the World Health Organization (WHO) which provides data on air quality for various countries [2022](#references). The data set contains information on PM2.5 concentrations for different countries and years. Alongside this data set, we have also chosen to use 3 additional data set for the purposes of enhancing the visualization, as well as to improve on the data engineering and data cleaning aspect of the WHO data set.
+
+The additional data sets are:
+
+1. **Country Codes [2024](#references)**: This data set contains the alpha-3 country codes and sub-region category for each country, which will be used to merge with the WHO data set so that we may obtain a more accurate mean for missing PM2.5 values based on sub-region.
+2. **Population Data [2024](#references)**: This data set contains the population for each country, which will be used to provide context to the PM2.5 data within our visualization.
+3. **GDP Data [2024](#references)**: This data set contains the GDP for each country, which will be used to provide context to the PM2.5 data within our visualization.
+
+Below is a glimpse and summary of the WHO air quality data set.
 
 ```{r}
-airReport <- readxl::read_excel("who_aap_2021_v9_11august2022.xlsx")
-glimpse(airReport)
+who_data <- read_excel("who_aap_2021_v9_11august2022.xlsx", sheet = "AAP_2022_city_v9")
+
+regional_data <- read.csv("all.csv")
+glimpse(who_data)
 ```
 
 ```{r}
-summary(airReport)
+summary(who_data)
 ```
 
 ## Handling of Missing Values
 
-Based on the above summaries, we can see that there are missing values in the dataset in the PM columns. We will need to handle these missing values before proceeding with the changes. Some methods we can use to handle missing values include:
+Based on the above summaries, we can see that there are missing values in the data set in the PM columns. We will need to handle these missing values before proceeding with the changes. Some methods we can use to handle missing values include:
 
 1.  **Dropping Missing Values**: We can drop rows with missing values if they are not significant in number.
 2.  **Imputation**: We can impute missing values with the mean, median, or mode of the column.
 
-We will impute missing values with the mean of the column using the fill() function from the tidyr package.
+We will impute missing values by merging the WHO data set with the country codes data set to obtain the sub-region category for each country. We will then calculate the mean PM2.5 concentration for each sub-region and impute the missing values with the mean PM2.5 concentration of the corresponding sub-region.
 
 ```{r}
-aap_data_cleaned <- airReport #place holder
+# Merge the data
+merged_data <- who_data %>%
+  left_join(regional_data %>% select(alpha.3, sub.region), by = c("ISO3" = "alpha.3")) %>%
+  select(1:6, sub.region)
 
-numeric_columns <- c("PM2.5 (μg/m3)", "PM10 (μg/m3)", "NO2 (μg/m3)", "PM25 temporal coverage (%)", "PM10 temporal coverage (%)", "NO2 temporal coverage (%)")
+head(merged_data)
+```
 
-aap_data_cleaned <- aap_data_cleaned %>%
-  mutate(across(all_of(numeric_columns), ~ ifelse(is.na(.), mean(., na.rm = TRUE), .)))
+```{r}
+# Function to impute missing PM2.5 values
+impute_pm25 <- function(data) {
+  data %>%
+    group_by(sub.region, `Measurement Year`) %>%
+    mutate(pm25_mean = mean(`PM2.5 (μg/m3)`, na.rm = TRUE)) %>%
+    mutate(`PM2.5 (μg/m3)` = ifelse(is.na(`PM2.5 (μg/m3)`), pm25_mean, `PM2.5 (μg/m3)`)) %>%
+    select(-pm25_mean)
+}
+
+imputed_data <- impute_pm25(merged_data)
+
+head(imputed_data)
 ```
 
 ## Normalizing Column Names
@@ -81,15 +115,31 @@ aap_data_cleaned <- aap_data_cleaned %>%
 We will also need to normalize the column names to ensure consistency and ease of access. This will involve converting all column names to lowercase, replacing spaces with underscores, and removing special characters.
 
 ```{r}
-colnames(aap_data_cleaned) <- tolower(gsub(" ", "_", colnames(aap_data_cleaned)))
+# Standardize column names
+colnames(imputed_data) <- tolower(c("WHO_Region", "ISO3", "WHO_Country_Name", "City_or_Locality", 
+                                    "Measurement_Year", "PM2_5", "sub_region"))
+
+head(imputed_data)
 ```
 
 ## Data Type Conversion
 
-We will convert the data types of the columns to their appropriate types. For example, the year column should be converted to a date type if it is not already in that format.
+We will convert the data types of the columns to their appropriate types to be safe.
 
 ```{r}
-aap_data_cleaned$measurement_year <- as.integer(aap_data_cleaned$measurement_year)
+# Convert data types of columns
+imputed_data <- imputed_data %>%
+  mutate(
+    who_region = as.factor(who_region),
+    iso3 = as.factor(iso3),
+    who_country_name = as.factor(who_country_name),
+    city_or_locality = as.factor(city_or_locality),
+    measurement_year = as.numeric(measurement_year),
+    pm2_5 = as.numeric(pm2_5),
+    sub_region = as.factor(sub_region)
+  )
+
+str(imputed_data)
 ```
 
 ## Removing Duplicates
@@ -97,7 +147,42 @@ aap_data_cleaned$measurement_year <- as.integer(aap_data_cleaned$measurement_yea
 We will check for and remove any duplicate rows in the dataset to ensure data integrity.
 
 ```{r}
-aap_data_cleaned <- aap_data_cleaned %>% distinct()
+initial_row_count <- nrow(imputed_data)
+
+imputed_data <- imputed_data %>%
+distinct()
+
+# Check if any duplicates were removed
+final_row_count <- nrow(imputed_data)
+duplicates_removed <- initial_row_count - final_row_count
+
+if (duplicates_removed > 0) {
+  message(duplicates_removed, " duplicate rows were found and removed.")
+} else {
+  message("No duplicate rows were found.")
+}
+```
+## Population Data & GDP Data
+
+The steps to clean the GDP data is the same as the steps to clean the population data.
+
+To clean the population data, we need to remove the metadata rows, reshape the data to have their respective year and population column so that we can merge it with the WHO data set.
+
+```{r}
+# Read in the dataset and skip the first 4 rows
+population_data <- read_csv("API_SP.POP.TOTL_DS2_en_csv_v2_580248.csv", skip = 4)
+
+# Gather the year columns into key-value pairs of year and population
+population_data <- population_data %>%
+  gather(key = "year", value = "population", -`Country Name`, -`Country Code`, -`Indicator Name`, -`Indicator Code`) %>%
+  mutate(year = as.integer(year))
+
+# Rename columns for clarity
+colnames(population_data) <- c("country_name", "country_code", "indicator_name", "indicator_code", "year", "population")
+
+write_csv(population_data, "cleaned_population_data.csv")
+
+head(population_data)
 ```
 
 ## Cleaned Data
@@ -105,16 +190,19 @@ aap_data_cleaned <- aap_data_cleaned %>% distinct()
 This is the cleaned data
 
 ```{r}
-head(aap_data_cleaned)
+write_csv(imputed_data, "cleaned_imputed_data.csv")
+
+head(imputed_data)
 ```
 
 # Conclusion
 
-The data has now been cleaned and is ready for visualization, we will be using ggplot2 to create the visualizations. The proposed improvements will be implemented to enhance the clarity and depth of the visualization, providing a more interactive and informative experience for users. By incorporating these enhancements, we aim to create a more engaging and insightful visualization that effectively communicates the trends in air quality across global cities.
+The data has now been cleaned and is ready for visualization, we will be using ggplot2 to create the visualizations and ggplotly to render the plot interactive. The proposed improvements will be implemented to enhance the clarity and depth of the visualization, providing a more interactive and informative experience for users. By incorporating these enhancements, we aim to create a more engaging and insightful visualization that effectively communicates the trends in air quality across countries globally.
 
-# References
+# References {#references}
 
-Rao, P. (2024, January 6). Visualized: Air quality and pollution in 50 capital cities. Visual Capitalist. \
-<https://www.visualcapitalist.com/cp/air-quality-in-cities-2022/>
-
-*Air quality database 2022*. (2024, June 20). <https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database/2022>
+1. [Rao, P. (2024, January 6). Visualized: Air quality and pollution in 50 capital cities. Visual Capitalist](https://www.visualcapitalist.com/cp/air-quality-in-cities-2022/)
+2. [Air quality database 2022. (2024, June 20)](https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database/2022)
+3. [ISO-3166-Countries-with-Regional-Codes. (2024, June 19)](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv)
+4. [World Bank Group Population Data. (2024)](https://data.worldbank.org/indicator/SP.POP.TOTL)
+5. [World Bank Group GDP Data. (2024)](https://data.worldbank.org/indicator/NY.GDP.MKTP.CD)
