@@ -1,7 +1,7 @@
 ---
 title: "Air Quality Project Proposal"
-author: "Your Name"
-date: "2024-MM-DD"
+author: "Ng Wei Herng 2302854"
+date: "2024-07-07"
 
 format: 
   html:
@@ -23,7 +23,7 @@ library(tidyr)
 
 # Original Data Visualization in News Media
 
-The visualization titled "Comparing PM2.5 Concentrations in Capital Cities" created by Pallavi Rao [2023](#references) and published on "The Visual Capitalist", presents a snapshot of PM2.5 air pollution levels in various capital cities around the world for the year 2022. PM2.5 refers to particulate matter that is less than 2.5 micrometers in diameter, which is small enough to penetrate the lungs and enter the bloodstream, posing significant health risks.
+The visualization titled "Comparing PM2.5 Concentrations in Capital Cities" created by Pallavi Rao [(2023)](#references) and published on "The Visual Capitalist", presents a snapshot of PM2.5 air pollution levels in various capital cities around the world for the year 2022. PM2.5 refers to particulate matter that is less than 2.5 micrometers in diameter, which is small enough to penetrate the lungs and enter the bloodstream, posing significant health risks.
 
 This visualization uses a series of red circles to represent the PM2.5 concentrations in each capital city. The number of circles corresponds to the level of PM2.5 concentration that exceeds the World Health Organization's (WHO) safe limit for PM2.5, which is 5 µg/m³. Any value above this indicates a higher risk for adverse health effects.
 
@@ -54,15 +54,15 @@ However, the visualization is overall cluttered and does not scale well, making 
 
 ## Data Source Summary
 
-The original data set used for the visualization was sourced from the IQAir World Air Quality Report [2022](#references). While IQAir provides an API for users to obtain their air quality data, the API only gives real-time data instead of data in a time series ranging from the past to recent years.
+The original data set used for the visualization was sourced from the IQAir World Air Quality Report [(2022)](#references). While IQAir provides an API for users to obtain their air quality data, the API only gives real-time data instead of data in a time series ranging from the past to recent years.
 
-As such, the data set we have chosen to use comes from the World Health Organization (WHO) which provides data on air quality for various countries [2022](#references). The data set contains information on PM2.5 concentrations for different countries and years. Alongside this data set, we have also chosen to use 3 additional data set for the purposes of enhancing the visualization, as well as to improve on the data engineering and data cleaning aspect of the WHO data set.
+As such, the data set we have chosen to use comes from the World Health Organization (WHO) which provides data on air quality for various countries [(2022)](#references). The data set contains information on PM2.5 concentrations for different countries and years. Alongside this data set, we have also chosen to use 3 additional data set for the purposes of enhancing the visualization, as well as to improve on the data engineering and data cleaning aspect of the WHO data set.
 
 The additional data sets are:
 
-1. **Country Codes [2024](#references)**: This data set contains the alpha-3 country codes and sub-region category for each country, which will be used to merge with the WHO data set so that we may obtain a more accurate mean for missing PM2.5 values based on sub-region.
-2. **Population Data [2024](#references)**: This data set contains the population for each country, which will be used to provide context to the PM2.5 data within our visualization.
-3. **GDP Data [2024](#references)**: This data set contains the GDP for each country, which will be used to provide context to the PM2.5 data within our visualization.
+1. **Country Codes [(2024)](#references)**: This data set contains the alpha-3 country codes and sub-region category for each country, which will be used to merge with the WHO data set so that we may obtain a more accurate mean for missing PM2.5 values based on sub-region.
+2. **Population Data [(2024)](#references)**: This data set contains the population for each country, which will be used to provide context to the PM2.5 data within our visualization.
+3. **GDP Data [(2024)](#references)**: This data set contains the GDP for each country, which will be used to provide context to the PM2.5 data within our visualization.
 
 Below is a glimpse and summary of the WHO air quality data set.
 
