@@ -1,0 +1,179 @@
+---
+title: "pm_gdp"
+format: html
+editor: visual
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(plotly)
+library(stats)
+
+```
+
+# Load and prepare dataset
+## Main Dataset
+```{r}
+df <- read_csv("cleaned_imputed_data.csv")
+
+# Only show from 2019 onwards
+df <- df %>%
+  filter(measurement_year >= 2017, measurement_year <= 2019)
+
+```
+
+## GDP Dataset
+```{r}
+# Read in the dataset and skip the first 4 rows
+gdp_df <- read_csv("gdp.csv", skip = 4)
+
+# Gather the year columns into key-value pairs of year and population
+gdp_df <- gdp_df %>%
+  gather(key = "year", value = "gdp", -`Country Name`, -`Country Code`, -`Indicator Name`, -`Indicator Code`) %>%
+  mutate(year = ifelse(grepl("^\\d+$", year), as.integer(year), NA_integer_))
+
+# Rename columns for clarity
+colnames(gdp_df) <- c("country_name", "country_code", "indicator_name", "indicator_code", "year", "gdp")
+
+# Impute missing GDP values based on previous years
+gdp_df <- gdp_df %>%
+  group_by(country_name) %>%
+  fill(gdp, .direction = "down")
+
+# Drop indicator_name and code
+gdp_df <- gdp_df %>%
+  select(-indicator_name, -indicator_code)
+
+# Only show between 2017 and 2019
+gdp_df <- gdp_df %>%
+  filter(year >= 2017, year <= 2019)
+
+# Write the cleaned data to a new CSV file
+write_csv(gdp_df, "cleaned_gdp_data.csv")
+```
+
+## Adding GDP to main dataset
+```{r}
+# Merge the GDP data with the main dataset
+df <- df %>%
+  left_join(gdp_df, by = c("who_country_name" = "country_name", "measurement_year" = "year"))
+
+# Drop all null values
+df <- df %>%
+  drop_na()
+write_csv(df, "final.csv")
+
+knitr::kable(head(df))
+```
+
+# GDP vs PM2.5 based on years (interactable)
+```{r}
+library(plotly)
+library(stats)
+
+# Improved function to create trend line data with LOESS
+create_trend_line <- function(x, y) {
+  valid <- !is.na(x) & !is.na(y)
+  x <- x[valid]
+  y <- y[valid]
+  order <- order(x)
+  x <- x[order]
+  y <- y[order]
+  loess_fit <- loess(y ~ x, span = 0.75)
+  new_x <- seq(min(x), max(x), length.out = 100)
+  new_y <- predict(loess_fit, newdata = data.frame(x = new_x))
+  new_y <- pmax(0, new_y)
+  return(list(x = new_x, y = new_y))
+}
+
+# Create initial trend line for 2017
+trend_2017 <- create_trend_line(df$gdp[df$measurement_year == 2017], 
+                                df$pm2_5[df$measurement_year == 2017])
+
+# Get unique regions
+regions <- unique(df$who_region)
+
+# Create the plot
+fig <- plot_ly()
+
+# Add traces for each region
+for (region in regions) {
+  fig <- fig %>%
+    add_trace(data = df[df$measurement_year == 2017 & df$who_region == region, ],
+              x = ~gdp, 
+              y = ~pm2_5, 
+              text = ~paste("Country:", who_country_name, 
+                            "<br>City:", city_or_locality, 
+                            "<br>Region:", who_region),
+              type = "scatter",
+              mode = "markers",
+              marker = list(size = 10, opacity = 0.7),
+              name = region,
+              legendgroup = region)
+}
+
+# Add trend line
+fig <- fig %>%
+  add_trace(x = trend_2017$x, 
+            y = trend_2017$y, 
+            type = "scatter", 
+            mode = "lines", 
+            line = list(color = "black", width = 3),
+            name = "Trend Line")
+
+# Layout
+fig <- fig %>%
+  layout(title = "GDP vs PM2.5 (2017)",
+         xaxis = list(title = "GDP", type = "log"),
+         yaxis = list(title = "PM2.5", rangemode = "tozero"),
+         updatemenus = list(
+           list(
+             buttons = list(
+               list(method = "update",
+                    args = list(list(
+                      visible = c(rep(TRUE, length(regions) + 1)),
+                      x = c(lapply(regions, function(r) df$gdp[df$measurement_year == 2017 & df$who_region == r]), list(trend_2017$x)),
+                      y = c(lapply(regions, function(r) df$pm2_5[df$measurement_year == 2017 & df$who_region == r]), list(trend_2017$y)),
+                      text = c(lapply(regions, function(r) paste("Country:", df$who_country_name[df$measurement_year == 2017 & df$who_region == r], 
+                                                                 "<br>City:", df$city_or_locality[df$measurement_year == 2017 & df$who_region == r],
+                                                                 "<br>Region:", r)), list(NULL))
+                    ),
+                    list(title = "GDP vs PM2.5 (2017)")),
+                    label = "2017"),
+               list(method = "update",
+                    args = list(list(
+                      visible = c(rep(TRUE, length(regions) + 1)),
+                      x = c(lapply(regions, function(r) df$gdp[df$measurement_year == 2018 & df$who_region == r]), 
+                            list(create_trend_line(df$gdp[df$measurement_year == 2018], df$pm2_5[df$measurement_year == 2018])$x)),
+                      y = c(lapply(regions, function(r) df$pm2_5[df$measurement_year == 2018 & df$who_region == r]), 
+                            list(create_trend_line(df$gdp[df$measurement_year == 2018], df$pm2_5[df$measurement_year == 2018])$y)),
+                      text = c(lapply(regions, function(r) paste("Country:", df$who_country_name[df$measurement_year == 2018 & df$who_region == r], 
+                                                                 "<br>City:", df$city_or_locality[df$measurement_year == 2018 & df$who_region == r],
+                                                                 "<br>Region:", r)), list(NULL))
+                    ),
+                    list(title = "GDP vs PM2.5 (2018)")),
+                    label = "2018"),
+               list(method = "update",
+                    args = list(list(
+                      visible = c(rep(TRUE, length(regions) + 1)),
+                      x = c(lapply(regions, function(r) df$gdp[df$measurement_year == 2019 & df$who_region == r]), 
+                            list(create_trend_line(df$gdp[df$measurement_year == 2019], df$pm2_5[df$measurement_year == 2019])$x)),
+                      y = c(lapply(regions, function(r) df$pm2_5[df$measurement_year == 2019 & df$who_region == r]), 
+                            list(create_trend_line(df$gdp[df$measurement_year == 2019], df$pm2_5[df$measurement_year == 2019])$y)),
+                      text = c(lapply(regions, function(r) paste("Country:", df$who_country_name[df$measurement_year == 2019 & df$who_region == r], 
+                                                                 "<br>City:", df$city_or_locality[df$measurement_year == 2019 & df$who_region == r],
+                                                                 "<br>Region:", r)), list(NULL))
+                    ),
+                    list(title = "GDP vs PM2.5 (2019)")),
+                    label = "2019")
+             )
+           )
+         ))
+
+# Display the plot
+fig
+```
+
+We're using LOESS (Locally Estimated Scatterplot Smoothing) in the create_trend_line function. This method is more flexible and can capture non-linear trends in the data.
+X-axis uses a logarithmic scale (type = "log"), which often provides a better visualization for GDP data that can span several orders of magnitude.
+
