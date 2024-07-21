@@ -1,0 +1,107 @@
+---
+title: "gdp_test_2"
+format: html
+editor: visual
+engine: knitr
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(shiny)
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(formattable)
+library(plotly)
+library(DT)
+```
+
+# Load the dataset
+```{r}
+df <- read_csv('final.csv')
+```
+
+# Define UI for the app
+```{r}
+ui <- fluidPage(
+  titlePanel("PM2.5 and GDP Analysis"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("region", "Select Region:", choices = unique(df$who_region)),
+      selectInput("start_year", "Start Year:", choices = unique(df$measurement_year)),
+      selectInput("end_year", "End Year:", choices = unique(df$measurement_year))
+    ),
+    mainPanel(
+      DTOutput("table"),
+      plotlyOutput("pm25_plot"),
+      plotlyOutput("gdp_plot")
+    )
+  )
+)
+```
+
+# Define server logic
+```{r}
+server <- function(input, output) {
+  filtered_data <- reactive({
+    df %>%
+      filter(who_region == input$region,
+             measurement_year %in% c(input$start_year, input$end_year)) %>%
+      group_by(city_or_locality) %>%
+      summarise(
+        start_pm2_5 = first(pm2_5[measurement_year == input$start_year]),
+        end_pm2_5 = first(pm2_5[measurement_year == input$end_year]),
+        start_gdp = first(gdp[measurement_year == input$start_year]),
+        end_gdp = first(gdp[measurement_year == input$end_year])
+      ) %>%
+      mutate(
+        pm2_5_change = (end_pm2_5 - start_pm2_5) / start_pm2_5 * 100,
+        gdp_change = (end_gdp - start_gdp) / start_gdp * 100
+      ) %>%
+      arrange(desc(pm2_5_change)) %>%
+      slice_head(n = 10) %>%
+      mutate(city_or_locality = factor(city_or_locality, levels = city_or_locality))
+  })
+  
+  output$table <- renderDT({
+    data <- filtered_data() %>%
+      select(city_or_locality, pm2_5_change, gdp_change) %>%
+      rename(Location = city_or_locality, `PM2.5 Change (%)` = pm2_5_change, `GDP Change (%)` = gdp_change)
+    
+    datatable(data, options = list(pageLength = 10, autoWidth = TRUE, dom = 't'))
+  })
+  
+  output$pm25_plot <- renderPlotly({
+    data <- filtered_data()
+    p <- ggplot(data, aes(x = city_or_locality, y = pm2_5_change, fill = pm2_5_change, text = paste("PM2.5 Change: ", round(pm2_5_change, 2), "%"))) +
+      geom_bar(stat = "identity") +
+      scale_fill_gradient2(low = "green", mid = "yellow", high = "red", midpoint = 0) +
+      coord_flip() +
+      labs(title = "PM2.5 Percentage Change", x = "Location", y = "PM2.5 Change (%)") +
+      theme_minimal() +
+      theme(legend.position = "none") +
+      scale_x_discrete(limits = rev(levels(data$city_or_locality)))
+    
+    ggplotly(p, tooltip = "text")
+  })
+  
+  output$gdp_plot <- renderPlotly({
+    data <- filtered_data()
+    p <- ggplot(data, aes(x = city_or_locality, y = gdp_change, fill = gdp_change, text = paste("GDP Change: ", round(gdp_change, 2), "%"))) +
+      geom_bar(stat = "identity") +
+      scale_fill_gradient2(low = "blue", mid = "white", high = "red", midpoint = 0) +
+      coord_flip() +
+      labs(title = "GDP Percentage Change", x = "Location", y = "GDP Change (%)") +
+      theme_minimal() +
+      theme(legend.position = "none") +
+      scale_x_discrete(limits = rev(levels(data$city_or_locality)))
+    
+    ggplotly(p, tooltip = "text")
+  })
+}
+```
+
+# Run the application 
+```{r}
+shinyApp(ui = ui, server = server)
+```
