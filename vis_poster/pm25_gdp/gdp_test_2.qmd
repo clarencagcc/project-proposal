@@ -1,7 +1,6 @@
 ---
 title: "gdp_test_2"
 format: html
-editor: visual
 engine: knitr
 runtime: shiny
 ---
@@ -17,30 +16,33 @@ library(DT)
 ```
 
 # Load the dataset
+
 ```{r}
 df <- read_csv('final.csv')
 ```
 
 # Define UI for the app
+
 ```{r}
 ui <- fluidPage(
   titlePanel("PM2.5 and GDP Analysis"),
-  sidebarLayout(
-    sidebarPanel(
-      selectInput("region", "Select Region:", choices = unique(df$who_region)),
-      selectInput("start_year", "Start Year:", choices = unique(df$measurement_year)),
-      selectInput("end_year", "End Year:", choices = unique(df$measurement_year))
-    ),
-    mainPanel(
-      DTOutput("table"),
-      plotlyOutput("pm25_plot"),
-      plotlyOutput("gdp_plot")
-    )
+  fluidRow(
+    column(4, selectInput("region", "Select Region:", choices = unique(df$who_region))),
+    column(4, selectInput("start_year", "Start Year:", choices = unique(df$measurement_year))),
+    column(4, selectInput("end_year", "End Year:", choices = unique(df$measurement_year)))
+  ),
+  fluidRow(
+    column(12, DTOutput("table"))
+  ),
+  fluidRow(
+    column(6, plotlyOutput("pm25_plot")),
+    column(6, plotlyOutput("gdp_plot"))
   )
 )
 ```
 
 # Define server logic
+
 ```{r}
 server <- function(input, output) {
   filtered_data <- reactive({
@@ -101,7 +103,8 @@ server <- function(input, output) {
 }
 ```
 
-# Run the application 
+# Run the application
+
 ```{r}
 shinyApp(ui = ui, server = server)
 ```
