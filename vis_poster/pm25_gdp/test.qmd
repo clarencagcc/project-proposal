@@ -90,10 +90,7 @@ knitr::kable(head(df))
 
 # GDP vs PM2.5 based on years (interactable)
 
-```{r}
-library(plotly)
-library(stats)
-
+```{r, include=FALSE}
 # Improved function to create trend line data with LOESS
 create_trend_line <- function(x, y) {
   valid <- !is.na(x) & !is.na(y)
@@ -198,3 +195,131 @@ fig
 ```
 
 We're using LOESS (Locally Estimated Scatterplot Smoothing) in the create_trend_line function. This method is more flexible and can capture non-linear trends in the data. X-axis uses a logarithmic scale (type = "log"), which often provides a better visualization for GDP data that can span several orders of magnitude.
+
+```{r}
+library(plotly)
+library(stats)
+library(dplyr)
+
+# Improved function to create trend line data with LOESS
+create_trend_line <- function(x, y) {
+  valid <- !is.na(x) & !is.na(y)
+  x <- x[valid]
+  y <- y[valid]
+  order <- order(x)
+  x <- x[order]
+  y <- y[order]
+  loess_fit <- loess(y ~ x, span = 0.75)
+  new_x <- seq(min(x), max(x), length.out = 100)
+  new_y <- predict(loess_fit, newdata = data.frame(x = new_x))
+  new_y <- pmax(0, new_y)
+  return(list(x = new_x, y = new_y))
+}
+
+# Get unique regions
+regions <- unique(df$who_region)
+
+# Define a consistent color palette for regions
+region_colors <- setNames(RColorBrewer::brewer.pal(length(regions), "Set1"), regions)
+
+# Aggregate data by country (average of cities within each country)
+df_country <- df %>%
+  group_by(measurement_year, who_region, who_country_name) %>%
+  summarize(gdp = mean(gdp, na.rm = TRUE),
+            pm2_5 = mean(pm2_5, na.rm = TRUE),
+            .groups = 'drop')
+
+# Function to create traces based on year and view type
+create_traces <- function(year, view_type) {
+  if (view_type == "Cities") {
+    data <- df[df$measurement_year == year, ]
+    text_format <- paste("Country:", data$who_country_name, 
+                         "<br>City:", data$city_or_locality, 
+                         "<br>Region:", data$who_region)
+  } else {
+    data <- df_country[df_country$measurement_year == year, ]
+    text_format <- paste("Country:", data$who_country_name, 
+                         "<br>Region:", data$who_region)
+  }
+  
+  traces <- list()
+  for (region in regions) {
+    traces <- c(traces, list(
+      list(
+        x = data$gdp[data$who_region == region],
+        y = data$pm2_5[data$who_region == region],
+        text = text_format[data$who_region == region],
+        type = "scatter",
+        mode = "markers",
+        marker = list(size = 10, opacity = 0.7, color = region_colors[region]),
+        name = region,
+        legendgroup = paste(year, view_type),
+        visible = (year == 2017 && view_type == "Cities")
+      )
+    ))
+  }
+  
+  trend <- create_trend_line(data$gdp, data$pm2_5)
+  traces <- c(traces, list(
+    list(
+      x = trend$x,
+      y = trend$y,
+      type = "scatter",
+      mode = "lines",
+      line = list(color = "black", width = 3),
+      name = "Trend Line",
+      legendgroup = paste(year, view_type),
+      visible = (year == 2017 && view_type == "Cities")
+    )
+  ))
+  
+  return(traces)
+}
+
+# Create all traces
+all_traces <- list()
+for (year in c(2017, 2018, 2019)) {
+  for (view_type in c("Cities", "Countries")) {
+    all_traces <- c(all_traces, create_traces(year, view_type))
+  }
+}
+
+# Create plot
+fig <- plot_ly()
+for (trace in all_traces) {
+  fig <- add_trace(fig, type = trace$type, mode = trace$mode, x = trace$x, y = trace$y,
+                   text = trace$text, name = trace$name, legendgroup = trace$legendgroup,
+                   marker = trace$marker, line = trace$line, visible = trace$visible)
+}
+
+# Create visibility lists
+vis_lists <- list(
+  "2017 Cities" = rep(c(TRUE, FALSE), c(length(regions) + 1, length(all_traces) - (length(regions) + 1))),
+  "2017 Countries" = rep(c(FALSE, TRUE, FALSE), c(length(regions) + 1, length(regions) + 1, length(all_traces) - 2*(length(regions) + 1))),
+  "2018 Cities" = rep(c(FALSE, TRUE, FALSE), c(2*(length(regions) + 1), length(regions) + 1, length(all_traces) - 3*(length(regions) + 1))),
+  "2018 Countries" = rep(c(FALSE, TRUE, FALSE), c(3*(length(regions) + 1), length(regions) + 1, length(all_traces) - 4*(length(regions) + 1))),
+  "2019 Cities" = rep(c(FALSE, TRUE, FALSE), c(4*(length(regions) + 1), length(regions) + 1, length(all_traces) - 5*(length(regions) + 1))),
+  "2019 Countries" = rep(c(FALSE, TRUE), c(5*(length(regions) + 1), length(regions) + 1))
+)
+
+# Layout
+fig <- fig %>%
+  layout(title = "GDP vs PM2.5 (2017) - Cities",
+         xaxis = list(title = "GDP", type = "log"),
+         yaxis = list(title = "PM2.5", rangemode = "tozero"),
+         updatemenus = list(
+           list(
+             buttons = lapply(names(vis_lists), function(name) {
+               list(method = "update",
+                    args = list(list(visible = vis_lists[[name]]),
+                                list(title = paste("GDP vs PM2.5 -", name))),
+                    label = name)
+             }),
+             y = 1,
+             x = 0.8
+           )
+         ))
+
+# Display the plot
+fig
+```
