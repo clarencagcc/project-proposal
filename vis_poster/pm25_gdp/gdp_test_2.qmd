@@ -1,6 +1,8 @@
 ---
 title: "gdp_test_2"
-format: html
+format: 
+  html:
+    embed-resources: true
 engine: knitr
 runtime: shiny
 ---
