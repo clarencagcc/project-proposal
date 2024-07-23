@@ -12,7 +12,9 @@ library(stats)
 ```
 
 # Load and prepare dataset
+
 ## Main Dataset
+
 ```{r}
 df <- read_csv("cleaned_imputed_data.csv")
 
@@ -22,7 +24,8 @@ df <- df %>%
 
 ```
 
-## GDP Dataset
+## Data Preparation for GDP dataset
+
 ```{r}
 # Read in the dataset and skip the first 4 rows
 gdp_df <- read_csv("gdp.csv", skip = 4)
@@ -49,15 +52,34 @@ gdp_df <- gdp_df %>%
   filter(year >= 2017, year <= 2019)
 
 # Write the cleaned data to a new CSV file
-write_csv(gdp_df, "cleaned_gdp_data.csv")
+write_csv(gdp_df, "final_gdp_data.csv")
 ```
 
-## Adding GDP to main dataset
+## Data Prepartion for Population
+```{r}
+population_df <- read_csv("cleaned_population_data.csv")
+
+# impute missing population based on previous years
+population_df <- population_df %>%
+  group_by(country_name) %>%
+  fill(population, .direction = "down")
+
+# Only show between 2017 and 2019
+population_df <- population_df %>%
+  filter(year >= 2017, year <= 2019)
+
+# Write the cleaned data to a new CSV file
+write_csv(population_df, "final_population_data.csv")
+```
+
 ```{r}
 # Merge the GDP data with the main dataset
 df <- df %>%
   left_join(gdp_df, by = c("who_country_name" = "country_name", "measurement_year" = "year"))
 
+# Merge the population data with the main dataset
+df <- df %>%
+  left_join(population_df, by = c("who_country_name" = "country_name", "measurement_year" = "year"))
 # Drop all null values
 df <- df %>%
   drop_na()
@@ -67,6 +89,7 @@ knitr::kable(head(df))
 ```
 
 # GDP vs PM2.5 based on years (interactable)
+
 ```{r}
 library(plotly)
 library(stats)
@@ -174,6 +197,4 @@ fig <- fig %>%
 fig
 ```
 
-We're using LOESS (Locally Estimated Scatterplot Smoothing) in the create_trend_line function. This method is more flexible and can capture non-linear trends in the data.
-X-axis uses a logarithmic scale (type = "log"), which often provides a better visualization for GDP data that can span several orders of magnitude.
-
+We're using LOESS (Locally Estimated Scatterplot Smoothing) in the create_trend_line function. This method is more flexible and can capture non-linear trends in the data. X-axis uses a logarithmic scale (type = "log"), which often provides a better visualization for GDP data that can span several orders of magnitude.
