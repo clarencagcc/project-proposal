@@ -1,0 +1,175 @@
+
+
+```{r}
+library(rnaturalearth)
+library(plotly)
+library(dplyr)
+library(sf)
+
+# Load the dataset
+data <- read.csv("cleaned_imputed_data.csv")
+
+# Aggregate PM2.5 values by country and year
+aggregated_data <- data %>%
+  filter(measurement_year %in% c(2017, 2018, 2019)) %>%
+  group_by(iso3, who_country_name, measurement_year) %>%
+  summarise(pm2_5 = mean(pm2_5, na.rm = TRUE)) %>%
+  ungroup()
+
+# Get a complete list of countries without the geometry column
+countries <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf") %>%
+  dplyr::select(iso_a3, name) %>%
+  rename(iso3 = iso_a3, who_country_name = name) %>%
+  as.data.frame() %>%  # Convert to a data frame
+  dplyr::select(-geometry)  # Remove the geometry column
+
+# Create a data frame with all combinations of countries and years
+years <- c(2017, 2018, 2019)
+all_combinations <- expand.grid(iso3 = countries$iso3, measurement_year = years)
+
+# Merge with the full list of countries to get country names
+all_combinations <- all_combinations %>%
+  left_join(countries, by = "iso3")
+
+# Merge this with the aggregated data
+complete_data <- all_combinations %>%
+  left_join(aggregated_data, by = c("iso3", "measurement_year", "who_country_name"))
+
+# Replace NA values in pm2_5 with NaN
+complete_data$pm2_5[is.na(complete_data$pm2_5)] <- NaN
+
+# Save the complete data to a new CSV file
+write.csv(complete_data, "complete_aggregated_data.csv", row.names = FALSE)
+
+```
+
+```{r}
+# Load the aggregated dataset
+data <- read.csv("complete_aggregated_data.csv")
+
+# Function to prepare the data for plotting
+prepare_data <- function(year) {
+  d <- subset(data, measurement_year == year)
+  map <- ne_countries(scale = "medium", returnclass = "sf")
+  map <- merge(map, d, by.x = "iso_a3", by.y = "iso3", all.x = TRUE)
+  map$text <- paste(map$who_country_name, "<br>PM2.5:", ifelse(is.na(map$pm2_5), "Missing", map$pm2_5))
+  return(map)
+}
+
+# Limit the years to 2017, 2018, and 2019
+years <- c(2017, 2018, 2019)
+data_list <- lapply(years, prepare_data)
+names(data_list) <- years
+```
+
+```{r}
+
+p <- plot_ly()
+
+# Add traces for each year
+for (year in years) {
+  year_data <- data_list[[as.character(year)]]
+  pm2_5_data <- subset(year_data, !is.na(pm2_5))
+  missing_data <- subset(year_data, is.na(pm2_5))
+
+  p <- p %>%
+    add_trace(
+      type = 'choropleth',
+      locations = pm2_5_data$iso_a3,
+      z = pm2_5_data$pm2_5,
+      text = pm2_5_data$text,
+      colorscale = 'Viridis',
+      colorbar = list(
+        title = "PM2.5",
+        tickprefix = "",
+        len = 0.5,  
+        thickness = 20,  
+        y = 0.7,
+        yanchor = "middle"
+      ),
+      marker = list(line = list(color = 'white', width = 1)),
+      hoverinfo = "text",
+      visible = ifelse(year == years[1], TRUE, FALSE),
+      name = paste("PM2.5", as.character(year))
+    ) %>%
+    add_trace(
+      type = 'choropleth',
+      locations = missing_data$iso_a3,
+      z = rep(0, nrow(missing_data)), 
+      text = missing_data$text,
+      colorscale = list(
+        c(0, 'rgb(220, 220, 220)'),
+        c(1, 'rgb(220, 220, 220)')
+      ),  # Light gray for missing values
+      colorbar = list(
+        title = "Missing Values",
+        tickvals = c(0),
+        ticktext = c("Missing"),
+        len = 0.15,  
+        thickness = 20,  
+        y = 0.2,
+        yanchor = "middle"
+      ),
+      showscale = TRUE,
+      marker = list(line = list(color = 'white', width = 1)),
+      hoverinfo = "text",
+      visible = ifelse(year == years[1], TRUE, FALSE),
+      name = "Missing Values"
+    )
+}
+
+# Create a list of visibility vectors, one for each year
+visibility_list <- lapply(years, function(year) {
+  visibility_vector <- rep(FALSE, length(years) * 2)
+  visibility_vector[(which(years == year) * 2 - 1):(which(years == year) * 2)] <- TRUE
+  return(visibility_vector)
+})
+
+# Add dropdown menu for selecting year
+p <- p %>%
+  layout(
+    title = "Global PM2.5 Levels",
+    geo = list(
+      showframe = FALSE,
+      showcoastlines = TRUE,
+      projection = list(type = 'natural earth'),
+      bgcolor = 'lightblue',
+      landcolor = 'lightgray'
+    ),
+    updatemenus = list(
+      list(
+        buttons = lapply(seq_along(years), function(i) {
+          list(
+            method = "restyle",
+            args = list("visible", visibility_list[[i]]),
+            label = as.character(years[i])
+          )
+        }),
+        direction = "down",
+        pad = list(r = 10, t = 10, b = 100),
+        showactive = TRUE,
+        x = 0.1,
+        xanchor = "left",
+        y = 1.2,
+        yanchor = "top"
+      )
+    ),
+    legend = list(
+      traceorder = 'normal',
+      x = 1.15,
+      xanchor = 'left',
+      y = 0.5,
+      yanchor = 'middle'
+    )
+  )
+
+p
+```
+
+
+
+
+
+
+
+

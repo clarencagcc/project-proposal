@@ -1,0 +1,184 @@
+```{r}
+library(plotly)
+library(dplyr)
+
+# Sample data: Country population for 2020 and 2022
+data_2020 <- data.frame(
+  country = c("United States", "Canada", "Brazil", "United Kingdom", "France", "Germany",
+              "Russia", "India", "China", "Japan", "Australia", "South Africa"),
+  code = c("USA", "CAN", "BRA", "GBR", "FRA", "DEU", "RUS", "IND", "CHN", "JPN", "AUS", "ZAF"),
+  population = c(331002651, 37742154, 212559417, 67886011, 65273511, 83783942,
+                 145934462, 1380004385, 1439323776, 126476461, 25499884, 59308690)
+)
+
+data_2022 <- data.frame(
+  country = c("United States", "Canada", "Brazil", "United Kingdom", "France", "Germany",
+              "Russia", "India", "China", "Japan", "Australia", "South Africa"),
+  code = c("USA", "CAN", "BRA", "GBR", "FRA", "DEU", "RUS", "IND", "CHN", "JPN", "AUS", "ZAF"),
+  population = c(334805269, 38005238, 214326172, 68160777, 65426179, 83900471,
+                 143446060, 1393409038, 1444216107, 125584838, 25980725, 60554096)
+)
+
+# Sample data: WHO regions population for 2020 and 2022
+who_data_2020 <- data.frame(
+  region = c("AFRO", "AMRO", "EMRO", "EURO", "SEARO", "WPRO"),
+  code = c("AF", "AM", "EM", "EU", "SE", "WP"),
+  population = c(1275920972, 1003389020, 719141118, 930409404, 2044160368, 1947836866)
+)
+
+who_data_2022 <- data.frame(
+  region = c("AFRO", "AMRO", "EMRO", "EURO", "SEARO", "WPRO"),
+  code = c("AF", "AM", "EM", "EU", "SE", "WP"),
+  population = c(1300450208, 1024676383, 734592058, 939191570, 2078662005, 1981052823)
+)
+
+# Create initial choropleth map for 2020 (countries)
+fig <- plot_ly(type = 'choropleth', 
+               locations = data_2020$code, locationmode = 'ISO-3', 
+               z = data_2020$population, text = paste(data_2020$country, '<br>Population:', data_2020$population), 
+               hoverinfo = 'text',
+               colorscale = 'Blues', 
+               colorbar = list(title = "Population"))
+
+# Add the 2022 data (countries) as another trace
+fig <- fig %>% add_trace(type = 'choropleth', 
+                         locations = data_2022$code, locationmode = 'ISO-3', 
+                         z = data_2022$population, text = paste(data_2022$country, '<br>Population:', data_2022$population), 
+                         hoverinfo = 'text',
+                         colorscale = 'Blues', 
+                         visible = FALSE)
+
+# Add the 2020 data (WHO regions) as another trace
+fig <- fig %>% add_trace(type = 'choropleth', 
+                         locations = who_data_2020$code, locationmode = 'ISO-3', 
+                         z = who_data_2020$population, text = paste(who_data_2020$region, '<br>Population:', who_data_2020$population), 
+                         hoverinfo = 'text',
+                         colorscale = 'Greens', 
+                         visible = FALSE)
+
+# Add the 2022 data (WHO regions) as another trace
+fig <- fig %>% add_trace(type = 'choropleth', 
+                         locations = who_data_2022$code, locationmode = 'ISO-3', 
+                         z = who_data_2022$population, text = paste(who_data_2022$region, '<br>Population:', who_data_2022$population), 
+                         hoverinfo = 'text',
+                         colorscale = 'Greens', 
+                         visible = FALSE)
+
+# Add layout with dropdown menus
+fig <- fig %>% layout(
+  title = 'World Population by Country and WHO Regions',
+  updatemenus = list(
+    list(
+      buttons = list(
+        list(
+          method = "restyle",
+          args = list("visible", list(TRUE, FALSE, FALSE, FALSE)),
+          label = "2020 Countries"
+        ),
+        list(
+          method = "restyle",
+          args = list("visible", list(FALSE, TRUE, FALSE, FALSE)),
+          label = "2022 Countries"
+        ),
+        list(
+          method = "restyle",
+          args = list("visible", list(FALSE, FALSE, TRUE, FALSE)),
+          label = "2020 WHO Regions"
+        ),
+        list(
+          method = "restyle",
+          args = list("visible", list(FALSE, FALSE, FALSE, TRUE)),
+          label = "2022 WHO Regions"
+        )
+      ),
+      direction = "down",
+      pad = list(r = 10, t = 10),
+      showactive = TRUE,
+      x = 0.1,
+      xanchor = "left",
+      y = 1.2,
+      yanchor = "top"
+    ),
+    list(
+      buttons = list(
+        list(
+          method = "restyle",
+          args = list("colorscale", "Blues"),
+          label = "Countries"
+        ),
+        list(
+          method = "restyle",
+          args = list("colorscale", "Greens"),
+          label = "WHO Regions"
+        )
+      ),
+      direction = "down",
+      pad = list(r = 10, t = 10),
+      showactive = TRUE,
+      x = 0.3,
+      xanchor = "left",
+      y = 1.2,
+      yanchor = "top"
+    )
+  ),
+  geo = list(scope = 'world')
+)
+
+# Display the map
+fig
+
+```
+
+```{r}
+library(rnaturalearth)
+library(leaflet)
+library(dplyr)
+library(htmltools)
+```
+
+```{r}
+data <- read.csv("cleaned_imputed_data.csv")
+
+df_2021 <- data %>%
+  filter(measurement_year == 2019)
+
+# Load country shapes
+map <- ne_countries(scale = "medium", returnclass = "sf")
+
+# Merge with your data
+map_data <- map %>%
+  left_join(df_2021, by = c("iso_a3" = "iso3"))
+
+# Define color palette
+pal <- colorBin(
+  palette = "viridis", domain = map_data$pm2_5,
+  bins = seq(0, max(map_data$pm2_5, na.rm = TRUE) + 10, by = 10)
+)
+
+# Create labels
+map_data$labels <- paste0(
+  "<strong> Country: </strong> ", map_data$NAME, "<br/> ",
+  "<strong> PM2.5: </strong> ", round(map_data$pm2_5, 2), "<br/> "
+) %>%
+  lapply(htmltools::HTML)
+
+# Generate the Leaflet map
+leaflet(map_data) %>%
+  addTiles() %>%
+  setView(lng = 0, lat = 30, zoom = 2) %>%
+  addPolygons(
+    fillColor = ~pal(pm2_5), 
+    color = "white",
+    fillOpacity = 0.7,
+    label = ~labels,
+    highlight = highlightOptions(
+      color = "black",
+      bringToFront = TRUE
+    )
+  ) %>%
+  addLegend(
+    pal = pal, values = ~pm2_5,
+    opacity = 0.7, title = "PM2.5"
+  )
+```
+
