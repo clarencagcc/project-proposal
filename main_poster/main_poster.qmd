@@ -3,7 +3,7 @@ title: The Exploration of PM2.5 changes over the years???
 format:
   poster-typst: 
     size: "36x24"
-    poster-authors: "Ng Wei Herng, Timothy Zoe, Clarence Agcanas, Yeo Song Chen, Lee Ru Yuan"
+    poster-authors: "Ng Wei Herng, Timothy Zoe Delaya, Clarence Agcanas, Yeo Song Chen, Lee Ru Yuan"
     departments: "Group 6"
     institution-logo: "./images/sitlogo.png"
     footer-text: "posit::conf 2023"
@@ -20,7 +20,13 @@ The visualization titled “Comparing PM2.5 Concentrations in Capital Cities” 
 
 This visualization uses a series of red circles to represent the PM2.5 concentrations in each capital city. The number of circles corresponds to the level of PM2.5 concentration that exceeds the World Health Organization’s (WHO) safe limit for PM2.5, which is 5 µg/m³. Any value above this indicates a higher risk for adverse health effects.
 
-# Data Cleaning and Preparation
+## Issues with the Original Visualization
+
+While the original visualization provides a clear depiction of air pollution in popular cities, it does not show additional factors that might contribute to the pollution levels, such as population size and GDP. These factors could offer insights into the underlying causes of the pollution levels observed in the visualization.
+
+Moreover, the original visualization is not easy to grasp at a glance due to the use of multiple red circles, which can be overwhelming and confusing for viewers. This complexity makes it difficult to quickly understand the relative pollution levels between different cities. To address this issue, we used a choropleth map in our poster. The choropleth map offers a more intuitive and immediate visual representation of the data, allowing viewers to easily compare PM2.5 concentrations across different regions.
+
+# Dataset
 
 The original data set used for the visualization was sourced from the IQAir World Air Quality Report (2022). While IQAir provides an API for users to obtain their air quality data, the API only gives real-time data instead of data in a time series ranging from the past to recent years.
 
@@ -30,57 +36,48 @@ As such, the data set we have chosen to use comes from the World Health Organiza
 1. Population Data (2024)
 1. GDP Data (2024)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut.
+## Data cleaning and preparation
 
-| Lorem ipsum dolor sit. | Lorem ipsum. | Lorem ipsum. |
-|------------------------|--------------|--------------|
-| Lorem ipsum dolor.     | Lorem ipsum. | $\alpha$     |
-| Lorem ipsum.           | Lorem ipsum. | $\beta$      |
-| Lorem.                 | Lorem.       | $\gamma$     |
-| Lorem ipsum dolor.     | Lorem.       | $\theta$     |
+We began by reading in the main dataset, which contains PM2.5 concentration data. We filtered this dataset to include only the years from 2017 to 2019 to focus on the most recent data.
 
-: Lorem ipsum dolor sit amet {#tbl-1}
+For the GDP data, we read in the dataset and skipped the first four rows, which likely contain metadata. We transformed the data from wide to long format, converting year columns into key-value pairs, and renamed columns for clarity. Missing GDP values were imputed within each country group using previous years' data to ensure completeness. Unnecessary columns (indicator_name and indicator_code) were dropped, and the data was filtered to include only the years 2017 to 2019. The cleaned data was then saved to a new CSV file.
 
-Lorem @tbl-1 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At etiam Athenis, ut e patre audiebam facete et urbane Stoicos irridente, statua est in quo a nobis philosophia defensa et.
+For the population data, we read in the cleaned population dataset and imputed missing population values within each country group using previous years' data. The data was filtered to include only the years 2017 to 2019, and the cleaned data was saved to a new CSV file.
 
-## Lorem ipsum dolor sit amet
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At etiam Athenis, ut e patre.
+Finally, we merged the GDP and population data with the main PM2.5 dataset on the matching country names and years. Any remaining rows with null values were dropped to ensure our final dataset was complete. The final merged dataset was saved to a new CSV file for further analysis.
 
 # Improved Visualisation.
 
 ::: {.block fill="luma(230)" inset="8pt" radius="4pt"}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplifi- carique non possit. At etiam Athenis, ut e patre audiebam facete et urbane Stoicos irridente, statua est in quo a nobis philosophia defensa et.
+To improve upon the original visualization, we created a choropleth map to display PM2.5 concentrations in capital cities worldwide. Here are the key improvements:
 
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
-
+- **Choropleth Map**: We used a choropleth map to visualize PM2.5 concentrations in capital cities, providing a more intuitive and immediate visual representation of the data.
+- **Improved Visual Appeal**: The choropleth map's design is visually appealing and less cluttered compared to the original series of red circles. This aesthetic improvement makes the information more accessible and engaging for the audience.
+- **Additional Data**: We incorporated population and GDP data to provide context and insights into the factors contributing to air pollution levels in different regions. This additional information enhances the audience's understanding of the underlying causes of pollution.
+- **Interactive Elements**: The choropleth map can be made interactive, allowing users to explore PM2.5 concentrations throughout the years.
 :::
 
 ## Choropleth Map
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. 
+The choropleth map displays PM2.5 concentrations in capital cities globally, with darker colors representing higher pollution levels. This visualization allows for quick and clear comparison of air quality across cities, and integrates additional data like population and GDP for a more comprehensive understanding of pollution factors.
+
+Unfortunately, due to the lack of data of air pollution, most countries are greyed out. However, the countries with data are shown in the map below.
 
 ![Choropleth Map showing the Global PM2.5 Levels](./images/choroplethmap.png){width="70%"}
 
-## Lorem ipsum possimus
+## Scatter Plot, PM2.5 vs GDP
 
-Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At etiam Athenis, ut e patre audiebam facete et urbane Stoicos irridente, statua est in quo a nobis philosophia defensa et collaudata est, cum id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, om- nis dolor repellendus. Temporibus autem quibusdam et.
+![Global PM.2 and GDP](images/scatterplot.png){width="70%"}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. 
+- Averaging of Cities to Get Country Air Pollution
 
-![Temperature and ozone level](images/fig-airquality-1.svg)
+To derive country-level air pollution data from city-level data, we aggregate the city-level PM2.5 concentrations by taking the average for each country. This process involves grouping the data by country and year, and then computing the mean PM2.5 concentration for each group. By doing this, we obtain a representative value of PM2.5 concentration for each country, which can then be used for further analysis.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At etiam Athenis, ut e patre audiebam facete et urbane Stoicos irridente, statua est in quo a nobis philosophia defensa et collaudata est, cum id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, om- nis dolor repellendus. Temporibus autem quibusdam et.
+- Analysis using Trend Line
 
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
-  - Lorem ipsum dolor sit amet.
-  -  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
-  - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed. 
-  - Lorem ipsum dolor sit amet, consectetur adipiscing.
+The trend line provides a visual representation of the general pattern or relationship between GDP and PM2.5 concentrations. This can help to identify whether higher GDP is associated with higher or lower levels of air pollution. We use LOESS Method because it does not assume a specific functional form (like linear regression) and can adapt to the underlying data structure, providing a more flexible and accurate representation of the relationship.
+
 
 $$
 \sum_(k=1)^n k = \frac{(n(n+1))}{2} = \frac{(n^2 + n)}{2}
