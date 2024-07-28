@@ -1,14 +1,13 @@
 ---
-title: The Exploration of PM2.5 changes over the years???
+title: Visualization PM2.5 Concentrations in the World (2017-2019)
 format:
   poster-typst: 
     size: "36x24"
     poster-authors: "Ng Wei Herng, Timothy Zoe Delaya, Clarence Agcanas, Yeo Song Chen, Lee Ru Yuan"
-    departments: "Group 6"
     institution-logo: "./images/sitlogo.png"
-    footer-text: "posit::conf 2023"
-    footer-url: "https://posit.co/conference/"
-    footer-emails: "abc@example.com"
+    footer-text: "AAI1001 AY23/24 Tri 3 Team Project"
+    footer-url: "&nbsp;"
+    footer-emails: "Team 06"
     footer-color: "ebcfb2"
 ---
 
@@ -22,13 +21,11 @@ This visualization uses a series of red circles to represent the PM2.5 concentra
 
 ## Issues with the Original Visualization
 
-While the original visualization provides a clear depiction of air pollution in popular cities, it does not show additional factors that might contribute to the pollution levels, such as population size and GDP. These factors could offer insights into the underlying causes of the pollution levels observed in the visualization. The original visualization is not easy to grasp at a glance due to the use of multiple red circles, which can be overwhelming and confusing for viewers. This complexity makes it difficult to quickly understand the relative pollution levels between different cities.
+The original visualization clearly shows air pollution in popular cities but lacks additional factors like population size and GDP, which could explain the pollution levels. The use of multiple red circles makes it overwhelming and confusing, hindering quick comprehension of relative pollution levels between cities.
 
 # Dataset
 
-The original data set used for the visualization was sourced from the IQAir World Air Quality Report (2022). While IQAir provides an API for users to obtain their air quality data, the API only gives real-time data instead of data in a time series ranging from the past to recent years.
-
-As such, the data set we have chosen to use comes from the World Health Organization (WHO) which provides data on air quality for various countries from a wider year range. The data set contains information on PM2.5 concentrations for different countries and years and is also more precise as WHO has a 60% inclusion requirement whereby the recorded data require annual data availability of at least 60% of the total number of hours in a year to be included. Alongside this data set, we have also chosen to use 3 additional data set for the purposes of enhancing the visualization, as well as to improve on the data engineering and data cleaning aspect of the WHO data set.
+The data set we have chosen to use comes from the World Health Organization (WHO) which provides data on air quality for various countries from a wider year range. The data set contains information on PM2.5 concentrations for different countries and years and is also more precise as WHO has a 60% inclusion requirement whereby the recorded data require annual data availability of at least 60% of the total number of hours in a year to be included. Alongside this data set, we have also chosen to use 3 additional data set for the purposes of enhancing the visualization, as well as to improve on the data engineering and data cleaning aspect of the WHO data set.
 
 1. Country Codes (2024)
 1. Population Data (2024)
@@ -36,13 +33,7 @@ As such, the data set we have chosen to use comes from the World Health Organiza
 
 ## Data cleaning and preparation
 
-We began by reading in the main dataset, which contains PM2.5 concentration data. We filtered this dataset to include only the years from 2017 to 2019 to focus on the most recent data.
-
-For the GDP data, we read in the dataset and skipped the first four rows, which likely contain metadata. We transformed the data from wide to long format, converting year columns into key-value pairs, and renamed columns for clarity. Missing GDP values were imputed within each country group using previous years' data to ensure completeness. Unnecessary columns (indicator_name and indicator_code) were dropped, and the data was filtered to include only the years 2017 to 2019. The cleaned data was then saved to a new CSV file.
-
-For the population data, we read in the cleaned population dataset and imputed missing population values within each country group using previous years' data. The data was filtered to include only the years 2017 to 2019, and the cleaned data was saved to a new CSV file.
-
-Finally, we merged the GDP and population data with the main PM2.5 dataset on the matching country names and years. Any remaining rows with null values were dropped to ensure our final dataset was complete. The final merged dataset was saved to a new CSV file for further analysis.
+We began by reading in the PM2.5 concentration dataset and filtered it to include data from 2017 to 2019. For GDP data, we skipped metadata, transformed it from wide to long format, renamed columns for clarity, and imputed missing values using previous years' data. Unnecessary columns were dropped, and the data was filtered to include 2017-2019 before saving to a new CSV file. The population data was similarly cleaned and filtered for 2017-2019, with missing values imputed from previous years. We merged the GDP and population data with the PM2.5 dataset on matching country names and years, dropped any remaining rows with null values, and saved the final complete dataset to a new CSV file for further analysis.
 
 # Improved Visualisation
 
@@ -60,11 +51,11 @@ The choropleth map displays PM2.5 concentrations in countries globally, with dar
 Unfortunately, due to the lack of data of air pollution, most countries are greyed out. However, the countries with data are shown in the map below.
 
 
-![Choropleth Map showing the Global PM2.5 Levels](./images/choroplethmap.png){width="70%"}  
+![Choropleth Map showing the Global PM2.5 Levels](./images/choroplethmap.png){width="90%"}
 
 ## Scatter Plot, PM2.5 vs GDP
 
-![Global PM.2 and GDP](images/scatterplot.png){width="70%"}
+![Global PM.2 and GDP](images/scatterplot.png){width="85%"}
 
 - Averaging of Cities to Get Country Air Pollution
 
@@ -73,5 +64,9 @@ To derive country-level air pollution data from city-level data, we aggregate th
 - Analysis using Trend Line
 
 The trend line provides a visual representation of the general pattern or relationship between GDP and PM2.5 concentrations. This can help to identify whether higher GDP is associated with higher or lower levels of air pollution. We use LOESS Method because it does not assume a specific functional form (like linear regression) and can adapt to the underlying data structure, providing a more flexible and accurate representation of the relationship.
+
+## Scatter Plot, PM2.5 vs Population
+
+![Global PM.2 and GDP](images/population.png){width="75%"}
 
 

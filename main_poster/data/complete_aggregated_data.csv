@@ -1,0 +1,895 @@
+"iso3","measurement_year","who_country_name","pm2_5"
+"ZWE",2017,"Zimbabwe",NA
+"ZMB",2017,"Zambia",NA
+"YEM",2017,"Yemen",NA
+"VNM",2017,"Vietnam",NA
+"VEN",2017,"Venezuela",NA
+"VAT",2017,"Vatican",NA
+"VUT",2017,"Vanuatu",NA
+"UZB",2017,"Uzbekistan",NA
+"URY",2017,"Uruguay",NA
+"FSM",2017,"Micronesia",NA
+"MHL",2017,"Marshall Is.",NA
+"MNP",2017,"N. Mariana Is.",NA
+"VIR",2017,"U.S. Virgin Is.",NA
+"GUM",2017,"Guam",NA
+"ASM",2017,"American Samoa",NA
+"PRI",2017,"Puerto Rico",NA
+"USA",2017,"United States of America",7.95627378412505
+"SGS",2017,"S. Geo. and the Is.",NA
+"IOT",2017,"Br. Indian Ocean Ter.",NA
+"SHN",2017,"Saint Helena",NA
+"PCN",2017,"Pitcairn Is.",NA
+"AIA",2017,"Anguilla",NA
+"FLK",2017,"Falkland Is.",NA
+"CYM",2017,"Cayman Is.",NA
+"BMU",2017,"Bermuda",NA
+"VGB",2017,"British Virgin Is.",NA
+"TCA",2017,"Turks and Caicos Is.",NA
+"MSR",2017,"Montserrat",NA
+"JEY",2017,"Jersey",NA
+"GGY",2017,"Guernsey",NA
+"IMN",2017,"Isle of Man",NA
+"GBR",2017,"United Kingdom",8.25866900295472
+"ARE",2017,"United Arab Emirates",33.2754193548387
+"UKR",2017,"Ukraine",NA
+"UGA",2017,"Uganda",53.71
+"TKM",2017,"Turkmenistan",NA
+"TUR",2017,"Turkey",32.0764903225806
+"TUN",2017,"Tunisia",NA
+"TTO",2017,"Trinidad and Tobago",17.869375
+"TON",2017,"Tonga",NA
+"TGO",2017,"Togo",NA
+"TLS",2017,"Timor-Leste",NA
+"THA",2017,"Thailand",35.203
+"TZA",2017,"Tanzania",NA
+"TJK",2017,"Tajikistan",NA
+"TWN",2017,"Taiwan",NA
+"SYR",2017,"Syria",NA
+"CHE",2017,"Switzerland",11.6079498900879
+"SWE",2017,"Sweden",6.54875129712902
+"SWZ",2017,"eSwatini",NA
+"SUR",2017,"Suriname",NA
+"SSD",2017,"S. Sudan",NA
+"SDN",2017,"Sudan",NA
+"LKA",2017,"Sri Lanka",31.39
+"ESP",2017,"Spain",13.4825301251055
+"KOR",2017,"South Korea",NA
+"ZAF",2017,"South Africa",22.7720833333333
+"SOM",2017,"Somalia",NA
+"-99",2017,"Somaliland",NA
+"-99",2017,"Norway",NA
+"-99",2017,"Kosovo",NA
+"-99",2017,"France",NA
+"-99",2017,"N. Cyprus",NA
+"-99",2017,"Indian Ocean Ter.",NA
+"-99",2017,"Ashmore and Cartier Is.",NA
+"-99",2017,"Siachen Glacier",NA
+"SLB",2017,"Solomon Is.",NA
+"SVK",2017,"Slovakia",19.1926514285714
+"SVN",2017,"Slovenia",15.4827159468439
+"SGP",2017,"Singapore",14
+"SLE",2017,"Sierra Leone",NA
+"SYC",2017,"Seychelles",NA
+"SRB",2017,"Serbia",15.1970930232558
+"SEN",2017,"Senegal",19.86
+"SAU",2017,"Saudi Arabia",75
+"STP",2017,"São Tomé and Principe",NA
+"SMR",2017,"San Marino",NA
+"WSM",2017,"Samoa",NA
+"VCT",2017,"St. Vin. and Gren.",NA
+"LCA",2017,"Saint Lucia",NA
+"KNA",2017,"St. Kitts and Nevis",NA
+"RWA",2017,"Rwanda",NA
+"RUS",2017,"Russia",NA
+"ROU",2017,"Romania",20.3641911816578
+"QAT",2017,"Qatar",44
+"PRT",2017,"Portugal",13.5148283499446
+"POL",2017,"Poland",21.4981262032086
+"PHL",2017,"Philippines",36.5353333333333
+"PER",2017,"Peru",23.0047916666667
+"PRY",2017,"Paraguay",NA
+"PNG",2017,"Papua New Guinea",NA
+"PAN",2017,"Panama",NA
+"PLW",2017,"Palau",NA
+"PAK",2017,"Pakistan",NA
+"OMN",2017,"Oman",NA
+"-99",2017,"Somaliland",NA
+"-99",2017,"Norway",NA
+"-99",2017,"Kosovo",NA
+"-99",2017,"France",NA
+"-99",2017,"N. Cyprus",NA
+"-99",2017,"Indian Ocean Ter.",NA
+"-99",2017,"Ashmore and Cartier Is.",NA
+"-99",2017,"Siachen Glacier",NA
+"PRK",2017,"North Korea",NA
+"NGA",2017,"Nigeria",NA
+"NER",2017,"Niger",NA
+"NIC",2017,"Nicaragua",NA
+"NZL",2017,"New Zealand",11.0159523809524
+"NIU",2017,"Niue",NA
+"COK",2017,"Cook Is.",NA
+"NLD",2017,"Netherlands",11.3142270469339
+"ABW",2017,"Aruba",NA
+"CUW",2017,"Curaçao",NA
+"NPL",2017,"Nepal",39.28
+"NRU",2017,"Nauru",NA
+"NAM",2017,"Namibia",NA
+"MOZ",2017,"Mozambique",NA
+"MAR",2017,"Morocco",NA
+"ESH",2017,"W. Sahara",NA
+"MNE",2017,"Montenegro",15.1970930232558
+"MNG",2017,"Mongolia",86
+"MDA",2017,"Moldova",NA
+"MCO",2017,"Monaco",11.6575779376499
+"MEX",2017,"Mexico",21.5933173076923
+"MUS",2017,"Mauritius",NA
+"MRT",2017,"Mauritania",NA
+"MLT",2017,"Malta",12.529273255814
+"MLI",2017,"Mali",NA
+"MDV",2017,"Maldives",NA
+"MYS",2017,"Malaysia",NA
+"MWI",2017,"Malawi",NA
+"MDG",2017,"Madagascar",128
+"MKD",2017,"North Macedonia",18.3396382428941
+"LUX",2017,"Luxembourg",10.7487889688249
+"LTU",2017,"Lithuania",9.33547309833024
+"LIE",2017,"Liechtenstein",NA
+"LBY",2017,"Libya",NA
+"LBR",2017,"Liberia",NA
+"LSO",2017,"Lesotho",NA
+"LBN",2017,"Lebanon",NA
+"LVA",2017,"Latvia",12.712
+"LAO",2017,"Laos",NA
+"KGZ",2017,"Kyrgyzstan",NA
+"KWT",2017,"Kuwait",56.6747926267281
+"-99",2017,"Somaliland",NA
+"-99",2017,"Norway",NA
+"-99",2017,"Kosovo",NA
+"-99",2017,"France",NA
+"-99",2017,"N. Cyprus",NA
+"-99",2017,"Indian Ocean Ter.",NA
+"-99",2017,"Ashmore and Cartier Is.",NA
+"-99",2017,"Siachen Glacier",NA
+"KIR",2017,"Kiribati",NA
+"KEN",2017,"Kenya",NA
+"KAZ",2017,"Kazakhstan",NA
+"JOR",2017,"Jordan",33.3967741935484
+"JPN",2017,"Japan",NA
+"JAM",2017,"Jamaica",NA
+"ITA",2017,"Italy",16.1825
+"ISR",2017,"Israel",NA
+"PSE",2017,"Palestine",NA
+"IRL",2017,"Ireland",7.33232339089482
+"IRQ",2017,"Iraq",33.3967741935484
+"IRN",2017,"Iran",NA
+"IDN",2017,"Indonesia",30.06
+"IND",2017,"India",39.8155474017063
+"ISL",2017,"Iceland",5.67371126228269
+"HUN",2017,"Hungary",19.9737233082707
+"HND",2017,"Honduras",NA
+"HTI",2017,"Haiti",NA
+"GUY",2017,"Guyana",NA
+"GNB",2017,"Guinea-Bissau",NA
+"GIN",2017,"Guinea",NA
+"GTM",2017,"Guatemala",NA
+"GRD",2017,"Grenada",NA
+"GRC",2017,"Greece",15.869976744186
+"GHA",2017,"Ghana",NA
+"DEU",2017,"Germany",11.840246198251
+"GEO",2017,"Georgia",20
+"GMB",2017,"Gambia",NA
+"GAB",2017,"Gabon",NA
+"-99",2017,"Somaliland",NA
+"-99",2017,"Norway",NA
+"-99",2017,"Kosovo",NA
+"-99",2017,"France",NA
+"-99",2017,"N. Cyprus",NA
+"-99",2017,"Indian Ocean Ter.",NA
+"-99",2017,"Ashmore and Cartier Is.",NA
+"-99",2017,"Siachen Glacier",NA
+"SPM",2017,"St. Pierre and Miquelon",NA
+"WLF",2017,"Wallis and Futuna Is.",NA
+"MAF",2017,"St-Martin",NA
+"BLM",2017,"St-Barthélemy",NA
+"PYF",2017,"Fr. Polynesia",NA
+"NCL",2017,"New Caledonia",NA
+"ATF",2017,"Fr. S. Antarctic Lands",NA
+"ALA",2017,"Åland",NA
+"FIN",2017,"Finland",5.97087966220971
+"FJI",2017,"Fiji",NA
+"ETH",2017,"Ethiopia",27.24
+"EST",2017,"Estonia",4.55
+"ERI",2017,"Eritrea",NA
+"GNQ",2017,"Eq. Guinea",NA
+"SLV",2017,"El Salvador",NA
+"EGY",2017,"Egypt",NA
+"ECU",2017,"Ecuador",14.015
+"DOM",2017,"Dominican Rep.",NA
+"DMA",2017,"Dominica",NA
+"DJI",2017,"Djibouti",NA
+"GRL",2017,"Greenland",NA
+"FRO",2017,"Faeroe Is.",NA
+"DNK",2017,"Denmark",8.48408919123205
+"CZE",2017,"Czechia",19.575474887218
+"-99",2017,"Somaliland",NA
+"-99",2017,"Norway",NA
+"-99",2017,"Kosovo",NA
+"-99",2017,"France",NA
+"-99",2017,"N. Cyprus",NA
+"-99",2017,"Indian Ocean Ter.",NA
+"-99",2017,"Ashmore and Cartier Is.",NA
+"-99",2017,"Siachen Glacier",NA
+"CYP",2017,"Cyprus",13.724
+"CUB",2017,"Cuba",NA
+"HRV",2017,"Croatia",15.404097127223
+"CIV",2017,"Côte d'Ivoire",NA
+"CRI",2017,"Costa Rica",21.03875
+"COD",2017,"Dem. Rep. Congo",NA
+"COG",2017,"Congo",NA
+"COM",2017,"Comoros",NA
+"COL",2017,"Colombia",15.21
+"CHN",2017,"China",44.6155405405405
+"MAC",2017,"Macao",NA
+"HKG",2017,"Hong Kong",NA
+"CHL",2017,"Chile",NA
+"TCD",2017,"Chad",NA
+"CAF",2017,"Central African Rep.",NA
+"CPV",2017,"Cabo Verde",NA
+"CAN",2017,"Canada",6.82679951980792
+"CMR",2017,"Cameroon",NA
+"KHM",2017,"Cambodia",NA
+"MMR",2017,"Myanmar",35.203
+"BDI",2017,"Burundi",NA
+"BFA",2017,"Burkina Faso",NA
+"BGR",2017,"Bulgaria",20.3325280788177
+"BRN",2017,"Brunei",NA
+"BRA",2017,"Brazil",NA
+"BWA",2017,"Botswana",NA
+"BIH",2017,"Bosnia and Herz.",NA
+"BOL",2017,"Bolivia",NA
+"BTN",2017,"Bhutan",NA
+"BEN",2017,"Benin",NA
+"BLZ",2017,"Belize",NA
+"BEL",2017,"Belgium",11.981975044964
+"BLR",2017,"Belarus",NA
+"BRB",2017,"Barbados",NA
+"BGD",2017,"Bangladesh",49.4175
+"BHR",2017,"Bahrain",62.64
+"BHS",2017,"Bahamas",NA
+"AZE",2017,"Azerbaijan",NA
+"AUT",2017,"Austria",11.9428688309856
+"AUS",2017,"Australia",8.51066666666667
+"-99",2017,"Somaliland",NA
+"-99",2017,"Norway",NA
+"-99",2017,"Kosovo",NA
+"-99",2017,"France",NA
+"-99",2017,"N. Cyprus",NA
+"-99",2017,"Indian Ocean Ter.",NA
+"-99",2017,"Ashmore and Cartier Is.",NA
+"-99",2017,"Siachen Glacier",NA
+"HMD",2017,"Heard I. and McDonald Is.",NA
+"NFK",2017,"Norfolk Island",NA
+"-99",2017,"Somaliland",NA
+"-99",2017,"Norway",NA
+"-99",2017,"Kosovo",NA
+"-99",2017,"France",NA
+"-99",2017,"N. Cyprus",NA
+"-99",2017,"Indian Ocean Ter.",NA
+"-99",2017,"Ashmore and Cartier Is.",NA
+"-99",2017,"Siachen Glacier",NA
+"ARM",2017,"Armenia",NA
+"ARG",2017,"Argentina",21.03875
+"ATG",2017,"Antigua and Barb.",NA
+"AGO",2017,"Angola",NA
+"AND",2017,"Andorra",15.1970930232558
+"DZA",2017,"Algeria",NA
+"ALB",2017,"Albania",15.1970930232558
+"AFG",2017,"Afghanistan",NA
+"-99",2017,"Somaliland",NA
+"-99",2017,"Norway",NA
+"-99",2017,"Kosovo",NA
+"-99",2017,"France",NA
+"-99",2017,"N. Cyprus",NA
+"-99",2017,"Indian Ocean Ter.",NA
+"-99",2017,"Ashmore and Cartier Is.",NA
+"-99",2017,"Siachen Glacier",NA
+"ATA",2017,"Antarctica",NA
+"SXM",2017,"Sint Maarten",NA
+"TUV",2017,"Tuvalu",NA
+"ZWE",2018,"Zimbabwe",NA
+"ZMB",2018,"Zambia",NA
+"YEM",2018,"Yemen",NA
+"VNM",2018,"Vietnam",NA
+"VEN",2018,"Venezuela",NA
+"VAT",2018,"Vatican",NA
+"VUT",2018,"Vanuatu",NA
+"UZB",2018,"Uzbekistan",43.09
+"URY",2018,"Uruguay",12
+"FSM",2018,"Micronesia",NA
+"MHL",2018,"Marshall Is.",NA
+"MNP",2018,"N. Mariana Is.",NA
+"VIR",2018,"U.S. Virgin Is.",NA
+"GUM",2018,"Guam",NA
+"ASM",2018,"American Samoa",NA
+"PRI",2018,"Puerto Rico",NA
+"USA",2018,"United States of America",8.25214326241135
+"SGS",2018,"S. Geo. and the Is.",NA
+"IOT",2018,"Br. Indian Ocean Ter.",NA
+"SHN",2018,"Saint Helena",NA
+"PCN",2018,"Pitcairn Is.",NA
+"AIA",2018,"Anguilla",NA
+"FLK",2018,"Falkland Is.",NA
+"CYM",2018,"Cayman Is.",NA
+"BMU",2018,"Bermuda",NA
+"VGB",2018,"British Virgin Is.",NA
+"TCA",2018,"Turks and Caicos Is.",NA
+"MSR",2018,"Montserrat",NA
+"JEY",2018,"Jersey",NA
+"GGY",2018,"Guernsey",NA
+"IMN",2018,"Isle of Man",NA
+"GBR",2018,"United Kingdom",9.17899592619219
+"ARE",2018,"United Arab Emirates",35.5356875
+"UKR",2018,"Ukraine",22.82
+"UGA",2018,"Uganda",59.04
+"TKM",2018,"Turkmenistan",NA
+"TUR",2018,"Turkey",24.4762527901786
+"TUN",2018,"Tunisia",NA
+"TTO",2018,"Trinidad and Tobago",15.6159677419355
+"TON",2018,"Tonga",NA
+"TGO",2018,"Togo",NA
+"TLS",2018,"Timor-Leste",NA
+"THA",2018,"Thailand",NA
+"TZA",2018,"Tanzania",NA
+"TJK",2018,"Tajikistan",NA
+"TWN",2018,"Taiwan",NA
+"SYR",2018,"Syria",NA
+"CHE",2018,"Switzerland",11.6049679319683
+"SWE",2018,"Sweden",7.79710933720368
+"SWZ",2018,"eSwatini",NA
+"SUR",2018,"Suriname",NA
+"SSD",2018,"S. Sudan",NA
+"SDN",2018,"Sudan",NA
+"LKA",2018,"Sri Lanka",31.66
+"ESP",2018,"Spain",12.2069779707768
+"KOR",2018,"South Korea",NA
+"ZAF",2018,"South Africa",23.9627564102564
+"SOM",2018,"Somalia",NA
+"-99",2018,"Somaliland",NA
+"-99",2018,"Norway",NA
+"-99",2018,"Kosovo",NA
+"-99",2018,"France",NA
+"-99",2018,"N. Cyprus",NA
+"-99",2018,"Indian Ocean Ter.",NA
+"-99",2018,"Ashmore and Cartier Is.",NA
+"-99",2018,"Siachen Glacier",NA
+"SLB",2018,"Solomon Is.",NA
+"SVK",2018,"Slovakia",18.4946314651289
+"SVN",2018,"Slovenia",14.1145507891542
+"SGP",2018,"Singapore",15
+"SLE",2018,"Sierra Leone",NA
+"SYC",2018,"Seychelles",NA
+"SRB",2018,"Serbia",13.6133711048159
+"SEN",2018,"Senegal",42
+"SAU",2018,"Saudi Arabia",NA
+"STP",2018,"São Tomé and Principe",NA
+"SMR",2018,"San Marino",NA
+"WSM",2018,"Samoa",NA
+"VCT",2018,"St. Vin. and Gren.",NA
+"LCA",2018,"Saint Lucia",NA
+"KNA",2018,"St. Kitts and Nevis",NA
+"RWA",2018,"Rwanda",NA
+"RUS",2018,"Russia",NA
+"ROU",2018,"Romania",20.6793642215205
+"QAT",2018,"Qatar",44
+"PRT",2018,"Portugal",12.577364305949
+"POL",2018,"Poland",21.9144509427374
+"PHL",2018,"Philippines",26.8404761904762
+"PER",2018,"Peru",24.7969892473118
+"PRY",2018,"Paraguay",NA
+"PNG",2018,"Papua New Guinea",NA
+"PAN",2018,"Panama",NA
+"PLW",2018,"Palau",NA
+"PAK",2018,"Pakistan",37.83
+"OMN",2018,"Oman",NA
+"-99",2018,"Somaliland",NA
+"-99",2018,"Norway",NA
+"-99",2018,"Kosovo",NA
+"-99",2018,"France",NA
+"-99",2018,"N. Cyprus",NA
+"-99",2018,"Indian Ocean Ter.",NA
+"-99",2018,"Ashmore and Cartier Is.",NA
+"-99",2018,"Siachen Glacier",NA
+"PRK",2018,"North Korea",NA
+"NGA",2018,"Nigeria",NA
+"NER",2018,"Niger",NA
+"NIC",2018,"Nicaragua",NA
+"NZL",2018,"New Zealand",NA
+"NIU",2018,"Niue",NA
+"COK",2018,"Cook Is.",NA
+"NLD",2018,"Netherlands",12.1489897199575
+"ABW",2018,"Aruba",NA
+"CUW",2018,"Curaçao",NA
+"NPL",2018,"Nepal",49.02
+"NRU",2018,"Nauru",NA
+"NAM",2018,"Namibia",NA
+"MOZ",2018,"Mozambique",NA
+"MAR",2018,"Morocco",NA
+"ESH",2018,"W. Sahara",NA
+"MNE",2018,"Montenegro",13.6133711048159
+"MNG",2018,"Mongolia",74
+"MDA",2018,"Moldova",NA
+"MCO",2018,"Monaco",11.8423732718894
+"MEX",2018,"Mexico",19.6627803379416
+"MUS",2018,"Mauritius",NA
+"MRT",2018,"Mauritania",NA
+"MLT",2018,"Malta",12.08125
+"MLI",2018,"Mali",NA
+"MDV",2018,"Maldives",NA
+"MYS",2018,"Malaysia",NA
+"MWI",2018,"Malawi",NA
+"MDG",2018,"Madagascar",NA
+"MKD",2018,"North Macedonia",13.6133711048159
+"LUX",2018,"Luxembourg",10.9577332949309
+"LTU",2018,"Lithuania",11.0495256410256
+"LIE",2018,"Liechtenstein",NA
+"LBY",2018,"Libya",NA
+"LBR",2018,"Liberia",NA
+"LSO",2018,"Lesotho",NA
+"LBN",2018,"Lebanon",NA
+"LVA",2018,"Latvia",14.168
+"LAO",2018,"Laos",NA
+"KGZ",2018,"Kyrgyzstan",NA
+"KWT",2018,"Kuwait",56.5
+"-99",2018,"Somaliland",NA
+"-99",2018,"Norway",NA
+"-99",2018,"Kosovo",NA
+"-99",2018,"France",NA
+"-99",2018,"N. Cyprus",NA
+"-99",2018,"Indian Ocean Ter.",NA
+"-99",2018,"Ashmore and Cartier Is.",NA
+"-99",2018,"Siachen Glacier",NA
+"KIR",2018,"Kiribati",NA
+"KEN",2018,"Kenya",5.91
+"KAZ",2018,"Kazakhstan",32.25
+"JOR",2018,"Jordan",24.8728125
+"JPN",2018,"Japan",11.4713333333333
+"JAM",2018,"Jamaica",NA
+"ITA",2018,"Italy",14.4432762880464
+"ISR",2018,"Israel",NA
+"PSE",2018,"Palestine",NA
+"IRL",2018,"Ireland",8.13062393162393
+"IRQ",2018,"Iraq",24.8728125
+"IRN",2018,"Iran",NA
+"IDN",2018,"Indonesia",41.25
+"IND",2018,"India",42.9114601718756
+"ISL",2018,"Iceland",4.91815018315018
+"HUN",2018,"Hungary",20.2632431637754
+"HND",2018,"Honduras",NA
+"HTI",2018,"Haiti",NA
+"GUY",2018,"Guyana",NA
+"GNB",2018,"Guinea-Bissau",NA
+"GIN",2018,"Guinea",NA
+"GTM",2018,"Guatemala",NA
+"GRD",2018,"Grenada",NA
+"GRC",2018,"Greece",14.9407617248977
+"GHA",2018,"Ghana",NA
+"DEU",2018,"Germany",12.1685502902274
+"GEO",2018,"Georgia",NA
+"GMB",2018,"Gambia",NA
+"GAB",2018,"Gabon",NA
+"-99",2018,"Somaliland",NA
+"-99",2018,"Norway",NA
+"-99",2018,"Kosovo",NA
+"-99",2018,"France",NA
+"-99",2018,"N. Cyprus",NA
+"-99",2018,"Indian Ocean Ter.",NA
+"-99",2018,"Ashmore and Cartier Is.",NA
+"-99",2018,"Siachen Glacier",NA
+"SPM",2018,"St. Pierre and Miquelon",NA
+"WLF",2018,"Wallis and Futuna Is.",NA
+"MAF",2018,"St-Martin",NA
+"BLM",2018,"St-Barthélemy",NA
+"PYF",2018,"Fr. Polynesia",NA
+"NCL",2018,"New Caledonia",NA
+"ATF",2018,"Fr. S. Antarctic Lands",NA
+"ALA",2018,"Åland",NA
+"FIN",2018,"Finland",7.38266239316239
+"FJI",2018,"Fiji",NA
+"ETH",2018,"Ethiopia",28.79
+"EST",2018,"Estonia",6.09571428571429
+"ERI",2018,"Eritrea",NA
+"GNQ",2018,"Eq. Guinea",NA
+"SLV",2018,"El Salvador",29
+"EGY",2018,"Egypt",NA
+"ECU",2018,"Ecuador",19.84
+"DOM",2018,"Dominican Rep.",NA
+"DMA",2018,"Dominica",NA
+"DJI",2018,"Djibouti",NA
+"GRL",2018,"Greenland",NA
+"FRO",2018,"Faeroe Is.",NA
+"DNK",2018,"Denmark",10.5353561253561
+"CZE",2018,"Czechia",20.7005192590415
+"-99",2018,"Somaliland",NA
+"-99",2018,"Norway",NA
+"-99",2018,"Kosovo",NA
+"-99",2018,"France",NA
+"-99",2018,"N. Cyprus",NA
+"-99",2018,"Indian Ocean Ter.",NA
+"-99",2018,"Ashmore and Cartier Is.",NA
+"-99",2018,"Siachen Glacier",NA
+"CYP",2018,"Cyprus",12.942
+"CUB",2018,"Cuba",NA
+"HRV",2018,"Croatia",14.7928733306354
+"CIV",2018,"Côte d'Ivoire",NA
+"CRI",2018,"Costa Rica",20.2991612903226
+"COD",2018,"Dem. Rep. Congo",NA
+"COG",2018,"Congo",NA
+"COM",2018,"Comoros",NA
+"COL",2018,"Colombia",17.3282459677419
+"CHN",2018,"China",40.4088606620477
+"MAC",2018,"Macao",NA
+"HKG",2018,"Hong Kong",NA
+"CHL",2018,"Chile",15
+"TCD",2018,"Chad",NA
+"CAF",2018,"Central African Rep.",NA
+"CPV",2018,"Cabo Verde",NA
+"CAN",2018,"Canada",7.52972907801418
+"CMR",2018,"Cameroon",NA
+"KHM",2018,"Cambodia",NA
+"MMR",2018,"Myanmar",NA
+"BDI",2018,"Burundi",NA
+"BFA",2018,"Burkina Faso",NA
+"BGR",2018,"Bulgaria",20.6632547072212
+"BRN",2018,"Brunei",NA
+"BRA",2018,"Brazil",17.9991811414392
+"BWA",2018,"Botswana",NA
+"BIH",2018,"Bosnia and Herz.",NA
+"BOL",2018,"Bolivia",NA
+"BTN",2018,"Bhutan",NA
+"BEN",2018,"Benin",NA
+"BLZ",2018,"Belize",NA
+"BEL",2018,"Belgium",12.3744266513057
+"BLR",2018,"Belarus",NA
+"BRB",2018,"Barbados",NA
+"BGD",2018,"Bangladesh",72.29375
+"BHR",2018,"Bahrain",24.8728125
+"BHS",2018,"Bahamas",5.23
+"AZE",2018,"Azerbaijan",NA
+"AUT",2018,"Austria",12.3810216389501
+"AUS",2018,"Australia",8.06
+"-99",2018,"Somaliland",NA
+"-99",2018,"Norway",NA
+"-99",2018,"Kosovo",NA
+"-99",2018,"France",NA
+"-99",2018,"N. Cyprus",NA
+"-99",2018,"Indian Ocean Ter.",NA
+"-99",2018,"Ashmore and Cartier Is.",NA
+"-99",2018,"Siachen Glacier",NA
+"HMD",2018,"Heard I. and McDonald Is.",NA
+"NFK",2018,"Norfolk Island",NA
+"-99",2018,"Somaliland",NA
+"-99",2018,"Norway",NA
+"-99",2018,"Kosovo",NA
+"-99",2018,"France",NA
+"-99",2018,"N. Cyprus",NA
+"-99",2018,"Indian Ocean Ter.",NA
+"-99",2018,"Ashmore and Cartier Is.",NA
+"-99",2018,"Siachen Glacier",NA
+"ARM",2018,"Armenia",NA
+"ARG",2018,"Argentina",18.831935483871
+"ATG",2018,"Antigua and Barb.",NA
+"AGO",2018,"Angola",NA
+"AND",2018,"Andorra",13.6133711048159
+"DZA",2018,"Algeria",NA
+"ALB",2018,"Albania",NA
+"AFG",2018,"Afghanistan",NA
+"-99",2018,"Somaliland",NA
+"-99",2018,"Norway",NA
+"-99",2018,"Kosovo",NA
+"-99",2018,"France",NA
+"-99",2018,"N. Cyprus",NA
+"-99",2018,"Indian Ocean Ter.",NA
+"-99",2018,"Ashmore and Cartier Is.",NA
+"-99",2018,"Siachen Glacier",NA
+"ATA",2018,"Antarctica",NA
+"SXM",2018,"Sint Maarten",NA
+"TUV",2018,"Tuvalu",NA
+"ZWE",2019,"Zimbabwe",NA
+"ZMB",2019,"Zambia",NA
+"YEM",2019,"Yemen",NA
+"VNM",2019,"Vietnam",NA
+"VEN",2019,"Venezuela",NA
+"VAT",2019,"Vatican",NA
+"VUT",2019,"Vanuatu",NA
+"UZB",2019,"Uzbekistan",41.96
+"URY",2019,"Uruguay",NA
+"FSM",2019,"Micronesia",NA
+"MHL",2019,"Marshall Is.",NA
+"MNP",2019,"N. Mariana Is.",NA
+"VIR",2019,"U.S. Virgin Is.",NA
+"GUM",2019,"Guam",NA
+"ASM",2019,"American Samoa",NA
+"PRI",2019,"Puerto Rico",NA
+"USA",2019,"United States of America",6.64730305555556
+"SGS",2019,"S. Geo. and the Is.",NA
+"IOT",2019,"Br. Indian Ocean Ter.",NA
+"SHN",2019,"Saint Helena",NA
+"PCN",2019,"Pitcairn Is.",NA
+"AIA",2019,"Anguilla",NA
+"FLK",2019,"Falkland Is.",NA
+"CYM",2019,"Cayman Is.",NA
+"BMU",2019,"Bermuda",NA
+"VGB",2019,"British Virgin Is.",NA
+"TCA",2019,"Turks and Caicos Is.",NA
+"MSR",2019,"Montserrat",NA
+"JEY",2019,"Jersey",NA
+"GGY",2019,"Guernsey",NA
+"IMN",2019,"Isle of Man",NA
+"GBR",2019,"United Kingdom",8.8545326922014
+"ARE",2019,"United Arab Emirates",34.0600923076923
+"UKR",2019,"Ukraine",23.36
+"UGA",2019,"Uganda",60.15
+"TKM",2019,"Turkmenistan",22.08
+"TUR",2019,"Turkey",24.6577882971729
+"TUN",2019,"Tunisia",NA
+"TTO",2019,"Trinidad and Tobago",11.9333333333333
+"TON",2019,"Tonga",NA
+"TGO",2019,"Togo",NA
+"TLS",2019,"Timor-Leste",NA
+"THA",2019,"Thailand",24.6416775599129
+"TZA",2019,"Tanzania",NA
+"TJK",2019,"Tajikistan",71.52
+"TWN",2019,"Taiwan",NA
+"SYR",2019,"Syria",NA
+"CHE",2019,"Switzerland",9.62523493030555
+"SWE",2019,"Sweden",7.17755282890252
+"SWZ",2019,"eSwatini",NA
+"SUR",2019,"Suriname",NA
+"SSD",2019,"S. Sudan",NA
+"SDN",2019,"Sudan",NA
+"LKA",2019,"Sri Lanka",23.58
+"ESP",2019,"Spain",11.6901356344629
+"KOR",2019,"South Korea",NA
+"ZAF",2019,"South Africa",21.4259473684211
+"SOM",2019,"Somalia",NA
+"-99",2019,"Somaliland",NA
+"-99",2019,"Norway",NA
+"-99",2019,"Kosovo",NA
+"-99",2019,"France",NA
+"-99",2019,"N. Cyprus",NA
+"-99",2019,"Indian Ocean Ter.",NA
+"-99",2019,"Ashmore and Cartier Is.",NA
+"-99",2019,"Siachen Glacier",NA
+"SLB",2019,"Solomon Is.",NA
+"SVK",2019,"Slovakia",15.7758351629792
+"SVN",2019,"Slovenia",12.777759295499
+"SGP",2019,"Singapore",16
+"SLE",2019,"Sierra Leone",NA
+"SYC",2019,"Seychelles",NA
+"SRB",2019,"Serbia",12.9078630136986
+"SEN",2019,"Senegal",22.4557894736842
+"SAU",2019,"Saudi Arabia",34.12
+"STP",2019,"São Tomé and Principe",NA
+"SMR",2019,"San Marino",NA
+"WSM",2019,"Samoa",NA
+"VCT",2019,"St. Vin. and Gren.",NA
+"LCA",2019,"Saint Lucia",NA
+"KNA",2019,"St. Kitts and Nevis",NA
+"RWA",2019,"Rwanda",NA
+"RUS",2019,"Russia",NA
+"ROU",2019,"Romania",16.9491213585716
+"QAT",2019,"Qatar",41
+"PRT",2019,"Portugal",11.0903103159072
+"POL",2019,"Poland",17.7686542660949
+"PHL",2019,"Philippines",NA
+"PER",2019,"Peru",30.14
+"PRY",2019,"Paraguay",NA
+"PNG",2019,"Papua New Guinea",NA
+"PAN",2019,"Panama",NA
+"PLW",2019,"Palau",NA
+"PAK",2019,"Pakistan",71.855
+"OMN",2019,"Oman",NA
+"-99",2019,"Somaliland",NA
+"-99",2019,"Norway",NA
+"-99",2019,"Kosovo",NA
+"-99",2019,"France",NA
+"-99",2019,"N. Cyprus",NA
+"-99",2019,"Indian Ocean Ter.",NA
+"-99",2019,"Ashmore and Cartier Is.",NA
+"-99",2019,"Siachen Glacier",NA
+"PRK",2019,"North Korea",NA
+"NGA",2019,"Nigeria",NA
+"NER",2019,"Niger",NA
+"NIC",2019,"Nicaragua",NA
+"NZL",2019,"New Zealand",NA
+"NIU",2019,"Niue",NA
+"COK",2019,"Cook Is.",NA
+"NLD",2019,"Netherlands",10.5858658815046
+"ABW",2019,"Aruba",NA
+"CUW",2019,"Curaçao",NA
+"NPL",2019,"Nepal",26.0954545454545
+"NRU",2019,"Nauru",NA
+"NAM",2019,"Namibia",NA
+"MOZ",2019,"Mozambique",NA
+"MAR",2019,"Morocco",21.53
+"ESH",2019,"W. Sahara",NA
+"MNE",2019,"Montenegro",12.9078630136986
+"MNG",2019,"Mongolia",60
+"MDA",2019,"Moldova",NA
+"MCO",2019,"Monaco",10.090042462845
+"MEX",2019,"Mexico",NA
+"MUS",2019,"Mauritius",22.4557894736842
+"MRT",2019,"Mauritania",NA
+"MLT",2019,"Malta",11.8
+"MLI",2019,"Mali",NA
+"MDV",2019,"Maldives",NA
+"MYS",2019,"Malaysia",20.966875
+"MWI",2019,"Malawi",NA
+"MDG",2019,"Madagascar",19
+"MKD",2019,"North Macedonia",12.9078630136986
+"LUX",2019,"Luxembourg",9.18859569305429
+"LTU",2019,"Lithuania",10.5593312883436
+"LIE",2019,"Liechtenstein",NA
+"LBY",2019,"Libya",NA
+"LBR",2019,"Liberia",NA
+"LSO",2019,"Lesotho",NA
+"LBN",2019,"Lebanon",NA
+"LVA",2019,"Latvia",11.434
+"LAO",2019,"Laos",NA
+"KGZ",2019,"Kyrgyzstan",33.15
+"KWT",2019,"Kuwait",40.7433333333333
+"-99",2019,"Somaliland",NA
+"-99",2019,"Norway",NA
+"-99",2019,"Kosovo",NA
+"-99",2019,"France",NA
+"-99",2019,"N. Cyprus",NA
+"-99",2019,"Indian Ocean Ter.",NA
+"-99",2019,"Ashmore and Cartier Is.",NA
+"-99",2019,"Siachen Glacier",NA
+"KIR",2019,"Kiribati",NA
+"KEN",2019,"Kenya",10.79
+"KAZ",2019,"Kazakhstan",21.77
+"JOR",2019,"Jordan",26.4626153846154
+"JPN",2019,"Japan",NA
+"JAM",2019,"Jamaica",NA
+"ITA",2019,"Italy",13.6953821445442
+"ISR",2019,"Israel",NA
+"PSE",2019,"Palestine",NA
+"IRL",2019,"Ireland",8.51099832682655
+"IRQ",2019,"Iraq",43.755
+"IRN",2019,"Iran",NA
+"IDN",2019,"Indonesia",46.35
+"IND",2019,"India",38.8258763153355
+"ISL",2019,"Iceland",5.47549846625767
+"HUN",2019,"Hungary",16.1477748691099
+"HND",2019,"Honduras",NA
+"HTI",2019,"Haiti",NA
+"GUY",2019,"Guyana",NA
+"GNB",2019,"Guinea-Bissau",NA
+"GIN",2019,"Guinea",NA
+"GTM",2019,"Guatemala",14
+"GRD",2019,"Grenada",NA
+"GRC",2019,"Greece",14.9763561643836
+"GHA",2019,"Ghana",NA
+"DEU",2019,"Germany",10.2129052173009
+"GEO",2019,"Georgia",NA
+"GMB",2019,"Gambia",NA
+"GAB",2019,"Gabon",NA
+"-99",2019,"Somaliland",NA
+"-99",2019,"Norway",NA
+"-99",2019,"Kosovo",NA
+"-99",2019,"France",NA
+"-99",2019,"N. Cyprus",NA
+"-99",2019,"Indian Ocean Ter.",NA
+"-99",2019,"Ashmore and Cartier Is.",NA
+"-99",2019,"Siachen Glacier",NA
+"SPM",2019,"St. Pierre and Miquelon",NA
+"WLF",2019,"Wallis and Futuna Is.",NA
+"MAF",2019,"St-Martin",NA
+"BLM",2019,"St-Barthélemy",NA
+"PYF",2019,"Fr. Polynesia",NA
+"NCL",2019,"New Caledonia",NA
+"ATF",2019,"Fr. S. Antarctic Lands",NA
+"ALA",2019,"Åland",NA
+"FIN",2019,"Finland",6.8961308793456
+"FJI",2019,"Fiji",NA
+"ETH",2019,"Ethiopia",20.48
+"EST",2019,"Estonia",4.5975
+"ERI",2019,"Eritrea",NA
+"GNQ",2019,"Eq. Guinea",NA
+"SLV",2019,"El Salvador",NA
+"EGY",2019,"Egypt",NA
+"ECU",2019,"Ecuador",NA
+"DOM",2019,"Dominican Rep.",NA
+"DMA",2019,"Dominica",NA
+"DJI",2019,"Djibouti",NA
+"GRL",2019,"Greenland",NA
+"FRO",2019,"Faeroe Is.",NA
+"DNK",2019,"Denmark",9.22540558963872
+"CZE",2019,"Czechia",16.0234706806283
+"-99",2019,"Somaliland",NA
+"-99",2019,"Norway",NA
+"-99",2019,"Kosovo",NA
+"-99",2019,"France",NA
+"-99",2019,"N. Cyprus",NA
+"-99",2019,"Indian Ocean Ter.",NA
+"-99",2019,"Ashmore and Cartier Is.",NA
+"-99",2019,"Siachen Glacier",NA
+"CYP",2019,"Cyprus",13.025
+"CUB",2019,"Cuba",NA
+"HRV",2019,"Croatia",13.3826494762288
+"CIV",2019,"Côte d'Ivoire",NA
+"CRI",2019,"Costa Rica",7.4
+"COD",2019,"Dem. Rep. Congo",NA
+"COG",2019,"Congo",NA
+"COM",2019,"Comoros",NA
+"COL",2019,"Colombia",17.3335209235209
+"CHN",2019,"China",38.5087551440329
+"MAC",2019,"Macao",NA
+"HKG",2019,"Hong Kong",NA
+"CHL",2019,"Chile",18.9209047619048
+"TCD",2019,"Chad",NA
+"CAF",2019,"Central African Rep.",NA
+"CPV",2019,"Cabo Verde",NA
+"CAN",2019,"Canada",5.94486148148148
+"CMR",2019,"Cameroon",NA
+"KHM",2019,"Cambodia",NA
+"MMR",2019,"Myanmar",18.08
+"BDI",2019,"Burundi",NA
+"BFA",2019,"Burkina Faso",NA
+"BGR",2019,"Bulgaria",16.8906860444123
+"BRN",2019,"Brunei",NA
+"BRA",2019,"Brazil",17.1289959394611
+"BWA",2019,"Botswana",NA
+"BIH",2019,"Bosnia and Herz.",NA
+"BOL",2019,"Bolivia",NA
+"BTN",2019,"Bhutan",NA
+"BEN",2019,"Benin",NA
+"BLZ",2019,"Belize",NA
+"BEL",2019,"Belgium",10.7233973700431
+"BLR",2019,"Belarus",NA
+"BRB",2019,"Barbados",NA
+"BGD",2019,"Bangladesh",86.48
+"BHR",2019,"Bahrain",43.39
+"BHS",2019,"Bahamas",4.06
+"AZE",2019,"Azerbaijan",NA
+"AUT",2019,"Austria",10.3908055128487
+"AUS",2019,"Australia",7.46404411764706
+"-99",2019,"Somaliland",NA
+"-99",2019,"Norway",NA
+"-99",2019,"Kosovo",NA
+"-99",2019,"France",NA
+"-99",2019,"N. Cyprus",NA
+"-99",2019,"Indian Ocean Ter.",NA
+"-99",2019,"Ashmore and Cartier Is.",NA
+"-99",2019,"Siachen Glacier",NA
+"HMD",2019,"Heard I. and McDonald Is.",NA
+"NFK",2019,"Norfolk Island",NA
+"-99",2019,"Somaliland",NA
+"-99",2019,"Norway",NA
+"-99",2019,"Kosovo",NA
+"-99",2019,"France",NA
+"-99",2019,"N. Cyprus",NA
+"-99",2019,"Indian Ocean Ter.",NA
+"-99",2019,"Ashmore and Cartier Is.",NA
+"-99",2019,"Siachen Glacier",NA
+"ARM",2019,"Armenia",NA
+"ARG",2019,"Argentina",17.5787301587302
+"ATG",2019,"Antigua and Barb.",NA
+"AGO",2019,"Angola",NA
+"AND",2019,"Andorra",12.9078630136986
+"DZA",2019,"Algeria",21.53
+"ALB",2019,"Albania",10.32
+"AFG",2019,"Afghanistan",119.77
+"-99",2019,"Somaliland",NA
+"-99",2019,"Norway",NA
+"-99",2019,"Kosovo",NA
+"-99",2019,"France",NA
+"-99",2019,"N. Cyprus",NA
+"-99",2019,"Indian Ocean Ter.",NA
+"-99",2019,"Ashmore and Cartier Is.",NA
+"-99",2019,"Siachen Glacier",NA
+"ATA",2019,"Antarctica",NA
+"SXM",2019,"Sint Maarten",NA
+"TUV",2019,"Tuvalu",NA
