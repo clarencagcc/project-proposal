@@ -2,9 +2,11 @@
 title: Visualization PM2.5 Concentrations in the World (2017-2019)
 format:
   poster-typst: 
+    keep-typ: true
     size: "36x24"
     poster-authors: "Ng Wei Herng, Timothy Zoe Delaya, Clarence Agcanas, Yeo Song Chen, Lee Ru Yuan"
     institution-logo: "./images/sitlogo.png"
+    departments: "&nbsp;"
     footer-text: "AAI1001 AY23/24 Tri 3 Team Project"
     footer-url: "&nbsp;"
     footer-emails: "Team 06"
@@ -55,18 +57,28 @@ Unfortunately, due to the lack of data of air pollution, most countries are grey
 
 ## Scatter Plot, PM2.5 vs GDP
 
-![Global PM.2 and GDP](images/scatterplot.png){width="85%"}
+![Global PM2.5 vs GDP](images/scatterplot.png){width="85%"}
 
-- Averaging of Cities to Get Country Air Pollution
+- **Averaging of Cities to Get Country Air Pollution**
 
 To derive country-level air pollution data from city-level data, we aggregate the city-level PM2.5 concentrations by taking the average for each country. This process involves grouping the data by country and year, and then computing the mean PM2.5 concentration for each group. By doing this, we obtain a representative value of PM2.5 concentration for each country, which can then be used for further analysis.
 
-- Analysis using Trend Line
+- **Analysis using Trend Line**
 
 The trend line provides a visual representation of the general pattern or relationship between GDP and PM2.5 concentrations. This can help to identify whether higher GDP is associated with higher or lower levels of air pollution. We use LOESS Method because it does not assume a specific functional form (like linear regression) and can adapt to the underlying data structure, providing a more flexible and accurate representation of the relationship.
 
-## Scatter Plot, PM2.5 vs Population
+## Scatter Plot, PM2.5 vs Population  
 
-![Global PM.2 and GDP](images/population.png){width="75%"}
+![Global PM2.5 vs Population](images/population.png){width="75%"}
 
+This scatter plot shows the relationship between PM2.5 values and population size for each city in the country, the bubbles are color coded by their region. The trend line provides a visual representation of the general pattern or relationship between population size and PM2.5 concentrations. This can help to identify whether higher population size is associated with higher or lower levels of air pollution. 
 
+# Further Suggestions for Improvement
+
+- **Incorporate More Data**: Include additional datasets such as weather data, industrial activity, and traffic congestion to provide a more comprehensive analysis of air pollution.
+- **Enhance Interactivity**: Add more interactive elements such as filters, sliders, and dropdown menus to allow users to customize their viewing experience.
+- **Include wider Historical Data**: Incorporate historical data to analyze trends and patterns in air pollution levels over time.
+
+# Conclusion
+
+Our improved visualizations provide a more comprehensive and insightful analysis of PM2.5 concentrations globally. By incorporating additional data on population and GDP, we have enhanced the audience's understanding of the factors contributing to air pollution levels in different regions. The interactive elements allow users to explore the data further and gain deeper insights into the relationship between air pollution, population size, and GDP. Overall, our visualizations offer a more engaging and informative way to visualize air quality data and raise awareness of the importance of addressing air pollution on a global scale.

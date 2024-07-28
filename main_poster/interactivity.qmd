@@ -23,47 +23,11 @@ library(stats)
 
 # Data Visualisations
 
-## Choropleth Map
+## Choropleth Map, PM2.5 Levels by Country
 
-```{r}
-# Load the dataset
-data <- read.csv("data/cleaned_imputed_data.csv")
-
-# Aggregate PM2.5 values by country and year
-aggregated_data <- data %>%
-  filter(measurement_year %in% c(2017, 2018, 2019)) %>%
-  group_by(iso3, who_country_name, measurement_year) %>%
-  summarise(pm2_5 = mean(pm2_5, na.rm = TRUE)) %>%
-  ungroup()
-
-# Get a complete list of countries without the geometry column
-countries <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf") %>%
-  dplyr::select(iso_a3, name) %>%
-  rename(iso3 = iso_a3, who_country_name = name) %>%
-  as.data.frame() %>%  # Convert to a data frame
-  dplyr::select(-geometry)  # Remove the geometry column
-
-# Create a data frame with all combinations of countries and years
-years <- c(2017, 2018, 2019)
-all_combinations <- expand.grid(iso3 = countries$iso3, measurement_year = years)
-
-# Merge with the full list of countries to get country names
-all_combinations <- all_combinations %>%
-  left_join(countries, by = "iso3")
-
-# Merge this with the aggregated data
-complete_data <- all_combinations %>%
-  left_join(aggregated_data, by = c("iso3", "measurement_year", "who_country_name"))
-
-# Replace NA values in pm2_5 with NaN
-complete_data$pm2_5[is.na(complete_data$pm2_5)] <- NaN
-
-# Save the complete data to a new CSV file
-write.csv(complete_data, "complete_aggregated_data.csv", row.names = FALSE)
-```
 ```{r}
 # Load the aggregated dataset
-data <- read.csv("complete_aggregated_data.csv")
+data <- read.csv("data/complete_aggregated_data.csv")
 
 # Function to prepare the data for plotting
 prepare_data <- function(year) {
@@ -217,8 +181,6 @@ gdp_df <- gdp_df %>%
 gdp_df <- gdp_df %>%
   filter(year >= 2017, year <= 2019)
 
-# Write the cleaned data to a new CSV file
-write_csv(gdp_df, "final_gdp_data.csv")
 ```
 ```{r}
 population_df <- read_csv("data/cleaned_population_data.csv")
@@ -231,9 +193,6 @@ population_df <- population_df %>%
 # Only show between 2017 and 2019
 population_df <- population_df %>%
   filter(year >= 2017, year <= 2019)
-
-# Write the cleaned data to a new CSV file
-write_csv(population_df, "final_population_data.csv")
 ```
 ```{r}
 # Merge the GDP data with the main dataset
@@ -246,7 +205,6 @@ df <- df %>%
 # Drop all null values
 df <- df %>%
   drop_na()
-write_csv(df, "final.csv")
 ```
 
 ```{r}
@@ -380,7 +338,7 @@ fig
 ## Scatter Plot, PM2.5 vs Population
 
 ```{r}
-final_data <- read.csv("final.csv")
+final_data <- read.csv("data/final.csv")
 ```
 
 ```{r}
