@@ -53,7 +53,7 @@ The choropleth map displays PM2.5 concentrations in countries globally, with dar
 Unfortunately, due to the lack of data of air pollution, most countries are greyed out. However, the countries with data are shown in the map below.
 
 
-![Choropleth Map showing the Global PM2.5 Levels](./images/choroplethmap.png){width="90%"}
+![Choropleth Map showing the Global PM2.5 Levels](./images/choroplethmap.png){width="95%"}
 
 ## Scatter Plot, PM2.5 vs GDP
 
@@ -68,7 +68,7 @@ To derive country-level air pollution data from city-level data, we aggregate th
 The trend line provides a visual representation of the general pattern or relationship between GDP and PM2.5 concentrations. This can help to identify whether higher GDP is associated with higher or lower levels of air pollution. We use LOESS Method because it does not assume a specific functional form (like linear regression) and can adapt to the underlying data structure, providing a more flexible and accurate representation of the relationship.
 
 ## Scatter Plot, PM2.5 vs Population  
-
+  
 ![Global PM2.5 vs Population](images/population.png){width="75%"}
 
 This scatter plot shows the relationship between PM2.5 values and population size for each city in the country, the bubbles are color coded by their region. The trend line provides a visual representation of the general pattern or relationship between population size and PM2.5 concentrations. This can help to identify whether higher population size is associated with higher or lower levels of air pollution. 

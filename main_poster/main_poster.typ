@@ -491,7 +491,7 @@ To improve upon the original visualization, decided that we would create three v
 The choropleth map displays PM2.5 concentrations in countries globally, with darker colors representing higher PM2.5 levels. This visualization allows for quick and clear comparison of air quality across countries. Unfortunately, due to the lack of data of air pollution, most countries are greyed out. However, the countries with data are shown in the map below.
 
 #figure([
-#box(width: 90%,image("./images/choroplethmap.png"))
+#box(width: 95%,image("./images/choroplethmap.png"))
 ], caption: figure.caption(
 position: bottom, 
 [
